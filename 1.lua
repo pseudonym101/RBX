@@ -225,4 +225,5 @@ end
 zbtn.MouseButton1Click:Connect(nclip)
 zbtn1.MouseButton1Click:Connect(nfog)
 zbtn2.MouseButton1Click:Connect(ndex)
-zbtn3.MouseButton1Click:Connect(nredz)
+zbtn3.MouseButton1Click:Connect(niy)
+zbtn4.MouseButton1Click:Connect(nredz)
