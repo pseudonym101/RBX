@@ -51,11 +51,11 @@ zbtn2.Position = UDim2.new(0,0,0,40)
 zbtn2.Size = UDim2.new(0,50,0,20)
 zbtn2.Text = "DEX"
 
---[[zbtn3.Name = "button3"
+zbtn3.Name = "button3"
 zbtn3.Parent = zframe
-zbtn3.Position = UDim2.new(0,0,0,40)
+zbtn3.Position = UDim2.new(0,0,0,60)
 zbtn3.Size = UDim2.new(0,50,0,20)
-zbtn3.Text = "Dex"--]]
+zbtn3.Text = "REDZ"
 
 
 Input.InputBegan:connect(function(key)
@@ -178,7 +178,7 @@ end
 
 
 
---[[redz
+--redz
 local function zredz()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
 end
@@ -198,10 +198,10 @@ local function nredz()
 		zbtn3.Text = "NOREDZ"
 	end
 
-end--]]
+end
 
 
 zbtn.MouseButton1Click:Connect(nclip)
 zbtn1.MouseButton1Click:Connect(nfog)
 zbtn2.MouseButton1Click:Connect(ndex)
---zbtn3.MouseButton1Click:Connect(nredz)
+zbtn3.MouseButton1Click:Connect(nredz)
