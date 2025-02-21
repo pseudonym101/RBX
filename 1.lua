@@ -45,7 +45,7 @@ zbtn1.Position = UDim2.new(0,0,0,20)
 zbtn1.Size = UDim2.new(0,50,0,20)
 zbtn1.Text = "No FOG"
 
--zbtn2.Name = "button2"
+zbtn2.Name = "button2"
 zbtn2.Parent = zframe
 zbtn2.Position = UDim2.new(0,0,0,40)
 zbtn2.Size = UDim2.new(0,50,0,20)
