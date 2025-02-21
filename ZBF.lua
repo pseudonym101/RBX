@@ -45,13 +45,13 @@ zbtn1.Position = UDim2.new(0,0,0,20)
 zbtn1.Size = UDim2.new(0,50,0,20)
 zbtn1.Text = "No FOG"
 
---[[zbtn2.Name = "button2"
+-zbtn2.Name = "button2"
 zbtn2.Parent = zframe
 zbtn2.Position = UDim2.new(0,0,0,40)
 zbtn2.Size = UDim2.new(0,50,0,20)
 zbtn2.Text = "DEX"
 
-zbtn3.Name = "button3"
+--[[zbtn3.Name = "button3"
 zbtn3.Parent = zframe
 zbtn3.Position = UDim2.new(0,0,0,40)
 zbtn3.Size = UDim2.new(0,50,0,20)
@@ -158,9 +158,9 @@ end)
 
 end
 
---[[dex
+dex
 local funtion zdex()
-	loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/pseudonym101/RBX/refs/heads/path1/dex.lua"))()
 end
 
 local function xdex()
@@ -182,7 +182,7 @@ end
 
 
 
---redz
+--[[redz
 local function zredz()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
 end
@@ -207,5 +207,5 @@ end--]]
 
 zbtn.MouseButton1Click:Connect(nclip)
 zbtn1.MouseButton1Click:Connect(nfog)
---zbtn2.MouseButton1Click:Connect(ndex)
+zbtn2.MouseButton1Click:Connect(ndex)
 --zbtn3.MouseButton1Click:Connect(nredz)
