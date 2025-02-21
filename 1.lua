@@ -61,7 +61,7 @@ zbtn3.Text = "IY"
 
 zbtn4.Name = "button3"
 zbtn4.Parent = zframe
-zbtn4.Position = UDim2.new(0,0,0,60)
+zbtn4.Position = UDim2.new(0,0,0,80)
 zbtn4.Size = UDim2.new(0,50,0,20)
 zbtn4.Text = "REDZ"
 
