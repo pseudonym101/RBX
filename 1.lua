@@ -9,6 +9,7 @@ local zbtn = Instance.new("TextButton")
 local zbtn1 = Instance.new("TextButton")
 local zbtn2 = Instance.new("TextButton")
 local zbtn3 = Instance.new("TextButton")
+local zbtn4 = Instance.new("TextButton")
 
 
 local Noclip = nil
@@ -18,6 +19,7 @@ local vsb = 1
 local cclip = 1
 local cfog = 1
 local cdex = 0
+local ciy = 0
 local credz = 0
 
 
@@ -55,7 +57,13 @@ zbtn3.Name = "button3"
 zbtn3.Parent = zframe
 zbtn3.Position = UDim2.new(0,0,0,60)
 zbtn3.Size = UDim2.new(0,50,0,20)
-zbtn3.Text = "REDZ"
+zbtn3.Text = "IY"
+
+zbtn4.Name = "button3"
+zbtn4.Parent = zframe
+zbtn4.Position = UDim2.new(0,0,0,60)
+zbtn4.Size = UDim2.new(0,50,0,20)
+zbtn4.Text = "REDZ"
 
 
 Input.InputBegan:connect(function(key)
@@ -176,6 +184,23 @@ local function ndex()
 
 end
 
+--IY
+local function ziy()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/pseudonym101/RBX/refs/heads/path1/IY.lua"))()
+end
+
+
+local function niy()
+	if ciy == 0 then
+		ziy()
+		ciy = 1
+		zbtn3.Text = "IYED"
+	else
+		ciy = 0
+		zbtn3.Text = "NOIY"
+	end
+
+end
 
 
 --redz
@@ -191,11 +216,11 @@ local function nredz()
 	if credz == 0 then
 		zredz()
 		credz = 1
-		zbtn3.Text = "REDZED"
+		zbtn4.Text = "REDZED"
 	else
 		xredz()
 		credz = o
-		zbtn3.Text = "NOREDZ"
+		zbtn4.Text = "NOREDZ"
 	end
 
 end
