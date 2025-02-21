@@ -158,14 +158,11 @@ end)
 
 end
 
-dex
+--dex
 local funtion zdex()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/pseudonym101/RBX/refs/heads/path1/dex.lua"))()
 end
 
-local function xdex()
-	if zdex then zdex:Disconnect() end
-end
 
 local function ndex()
 	if cdex == 0 then
@@ -173,7 +170,6 @@ local function ndex()
 		cdex = 1
 		zbtn2.Text = "DEXED"
 	else
-		xdex()
 		cdex = 0
 		zbtn2.Text = "NODEX"
 	end
