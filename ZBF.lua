@@ -159,7 +159,7 @@ end)
 end
 
 --dex
-local funtion zdex()
+local function zdex()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/pseudonym101/RBX/refs/heads/path1/dex.lua"))()
 end
 
