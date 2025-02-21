@@ -208,9 +208,6 @@ local function zredz()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
 end
 
-local function xredz()
-	if zredz then zredz:Disconnect() end
-end
 
 local function nredz()
 	if credz == 0 then
@@ -218,7 +215,6 @@ local function nredz()
 		credz = 1
 		zbtn4.Text = "REDZED"
 	else
-		xredz()
 		credz = o
 		zbtn4.Text = "NOREDZ"
 	end
