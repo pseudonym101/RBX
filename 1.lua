@@ -122,14 +122,14 @@ end
 
 
 --nofog
-local function nfog()
+local function nofog()
 
 repeat task.wait() until game:IsLoaded()
 wait(5) -- extra load to ensure the script is working
 for i,v in pairs(game.Lighting:GetChildren()) do
 -- if v:IsA("") or v:IsA("Sky") or v:IsA("BlurEffect") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
 if v:IsA("") or v:IsA("Sky") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
-v:Destroy()
+v:Disconnect()
 end
 end
 
@@ -160,10 +160,21 @@ end)
 game.Lighting.DescendantAdded:Connect(function(obj)
 -- if obj:IsA("") or obj:IsA("Sky") or obj:IsA("BlurEffect") or obj:IsA("BloomEffect") or obj:IsA("SunRaysEffect") then
 if obj:IsA("") or obj:IsA("Sky") or obj:IsA("BloomEffect") or obj:IsA("SunRaysEffect") then
-obj:Destroy()
+obj:Disconnect()
 end
 end)
 
+end
+
+local function nfog()
+	if cfog == 0 then
+		nofog()
+		cfog = 1
+		zbtn1.Text = "NOFOGED"
+	else 
+		nofog:Disconnect()
+		zfog = 0
+		zbtn.Text = "FOG"
 end
 
 --dex
