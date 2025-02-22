@@ -122,7 +122,7 @@ end
 
 
 --nofog
-local function nfog()
+local function nofog()
 
 repeat task.wait() until game:IsLoaded()
 wait(5) -- extra load to ensure the script is working
