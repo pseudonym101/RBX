@@ -11,6 +11,12 @@ local zbtn2 = Instance.new("TextButton")
 local zbtn3 = Instance.new("TextButton")
 local zbtn4 = Instance.new("TextButton")
 
+local py1 = Players.localPlayer
+local pydex = py1.PlayerGui.Dex
+
+local scr1 = COREGUI:FindFirstChild("ScreenGui1")
+local red1 = COREGUI:FindFirstChild("redz Library V5")
+local red2 = COREGUI:FindFirstChild("rz_EspFolder")
 
 local Noclip = nil
 local Clip = nil
@@ -72,9 +78,11 @@ Input.InputBegan:connect(function(key)
 		if vsb1 == 1 then
 			vsb1 = 0
 			zframe.Visible = true
+			red1.Enabled = true
 		else
 			vsb1 = 1
 			zframe.Visible = false
+			red1.Enabled = false
 		end
 
 	end
