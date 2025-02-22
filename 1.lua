@@ -12,11 +12,7 @@ local zbtn3 = Instance.new("TextButton")
 local zbtn4 = Instance.new("TextButton")
 
 local py1 = Players.localPlayer
-local pydex = py1.PlayerGui:FindFirstChild("Dex")
 
-local scr1 = COREGUI:FindFirstChild("ScreenGui1")
-local red1 = COREGUI:FindFirstChild("redz Library V5")
-local red2 = COREGUI:FindFirstChild("rz_EspFolder")
 
 local Noclip = nil
 local Clip = nil
@@ -73,7 +69,7 @@ zbtn4.Text = "REDZ"
 
 
 Input.InputBegan:connect(function(key)
-
+	local red1 = COREGUI:FindFirstChild("redz Library V5")
 	local function onoff()
 		if vsb1 == 1 then
 			vsb1 = 0
