@@ -172,7 +172,6 @@ local function nfog()
 		cfog = 1
 		zbtn1.Text = "NOFOGED"
 	else 
-		nofog:Disconnect()
 		zfog = 0
 		zbtn.Text = "FOG"
 end
