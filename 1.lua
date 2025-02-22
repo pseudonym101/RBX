@@ -170,12 +170,12 @@ end)
 end
 
 local function nfog()
-	if cfog == 0 then
+	if cfog == 1 then
 		nofog()
-		cfog = 1
+		cfog = 0
 		zbtn1.Text = "NOFOGED"
 	else 
-		zfog = 0
+		zfog = 1
 		zbtn1.Text = "FOG"
 	end
 end
