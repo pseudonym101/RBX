@@ -79,10 +79,12 @@ Input.InputBegan:connect(function(key)
 			vsb1 = 0
 			zframe.Visible = true
 			red1.Enabled = true
+			pydex.Enabled = true
 		else
 			vsb1 = 1
 			zframe.Visible = false
 			red1.Enabled = false
+			pydex.Enabled = false
 		end
 
 	end
