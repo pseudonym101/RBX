@@ -12,7 +12,7 @@ local zbtn3 = Instance.new("TextButton")
 local zbtn4 = Instance.new("TextButton")
 
 local py1 = Players.localPlayer
-local pydex = py1.PlayerGui.Dex
+local pydex = py1.PlayerGui:FindFirstChild("Dex")
 
 local scr1 = COREGUI:FindFirstChild("ScreenGui1")
 local red1 = COREGUI:FindFirstChild("redz Library V5")
