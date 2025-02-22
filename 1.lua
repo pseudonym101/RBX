@@ -122,7 +122,7 @@ end
 
 
 --nofog
-local function nofog()
+local function nfog()
 
 repeat task.wait() until game:IsLoaded()
 wait(5) -- extra load to ensure the script is working
@@ -175,6 +175,7 @@ local function nfog()
 	else 
 		zfog = 0
 		zbtn.Text = "FOG"
+	end
 end
 
 --dex
