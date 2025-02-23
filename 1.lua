@@ -10,6 +10,7 @@ local zbtn1 = Instance.new("TextButton")
 local zbtn2 = Instance.new("TextButton")
 local zbtn3 = Instance.new("TextButton")
 local zbtn4 = Instance.new("TextButton")
+local zbtn5 = Instance.new("TextButton")
 local stck = Instance.new("Tool")
 local hndl = Instance.new("Part")
 local hbx = Instance.new("Part")
@@ -37,7 +38,7 @@ zgui.Parent = COREGUI
 zframe.Name = "menu"
 zframe.Parent = zgui
 zframe.Position = UDim2.new(0,100,0,100)
-zframe.Size = UDim2.new(0,50,0,100)
+zframe.Size = UDim2.new(0,50,0,120)
 zframe.Visible = true
 
 zbtn.Name = "button"
@@ -71,12 +72,18 @@ zbtn4.Size = UDim2.new(0,50,0,20)
 zbtn4.Text = "REDZ"
 
 
+zbtn5.Name = "button5"
+zbtn5.Parent = zframe
+zbtn5.Position = UDim2.new(0,0,0,100)
+zbtn5.Size = UDim2.new(0,50,0,20)
+zbtn5.Text = "Stick"
+
+
 Input.InputBegan:connect(function(key)
 	local red1 = COREGUI:FindFirstChild("redz Library V5")
 	local function onoff()
 		if vsb1 == 1 then
 			vsb1 = 0
-			stk()
 			zframe.Visible = true
 			red1.Enabled = true
 		else
@@ -311,3 +318,4 @@ zbtn1.MouseButton1Click:Connect(nfog)
 zbtn2.MouseButton1Click:Connect(ndex)
 zbtn3.MouseButton1Click:Connect(niy)
 zbtn4.MouseButton1Click:Connect(nredz)
+zbtn5.MouseButton1Click:Connect(stk)
