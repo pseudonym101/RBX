@@ -122,7 +122,7 @@ local function stk()
 
 	local function createHitbox()
 		hitbox = Instance.new("Part")
-		hitbox.Size = Vector3.new(100, 100, 100)  
+		hitbox.Size = Vector3.new(500, 500, 500)  
 		hitbox.CFrame = handle.CFrame  
 		hitbox.Anchored = true
 		hitbox.CanCollide = false
