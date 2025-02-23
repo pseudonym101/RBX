@@ -114,9 +114,9 @@ end)
 
 --stick
 local function stk()
-  local orgstk = Workspc:FindFirstChild("Stick99")
-  local clnstk = orgstk:Clone()
-  local clnstk.Parent = bp1
+	local orgstk = Workspc:FindFirstChild("Stick99")
+  	local clnstk = orgstk:Clone()
+  	clnstk.Parent = bp1
 
 	local tool = clnstk  
 	local handle = tool:WaitForChild("Handle")  
