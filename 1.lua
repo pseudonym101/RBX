@@ -32,20 +32,6 @@ local credz = 0
  
 Players.LocalPlayer.CameraMaxZoomDistance = 500
 
-
-stck.Name = "Stick99"
-stck.CanBeDropped = false
-stck.Parent = bp1
-stck.GripPos = Vector3.new(0,-1,0)
-
-hndl.Name = "Handle"
-hndl.BrickColor = BrickColor.new("Brown")
-hndl.Material = Enum.Material.Wood
-hndl.Size = Vector3.new(0.2,3,0.2)
-hndl.CanCollide = false
-hndl.Massless = true
-hndl.Parent = stck
-
 zgui.Parent = COREGUI
 
 zframe.Name = "menu"
@@ -90,6 +76,7 @@ Input.InputBegan:connect(function(key)
 	local function onoff()
 		if vsb1 == 1 then
 			vsb1 = 0
+			stk()
 			zframe.Visible = true
 			red1.Enabled = true
 		else
@@ -105,49 +92,65 @@ end)
 
 
 --stick
+local function stk()
 
+	stck.Name = "Stick99"
+	stck.CanBeDropped = false
+	stck.Parent = bp1
+	stck.GripPos = Vector3.new(0,-1,0)
 
+	hndl.Name = "Handle"
+	hndl.BrickColor = BrickColor.new("Brown")
+	hndl.Material = Enum.Material.Wood
+	hndl.Size = Vector3.new(0.2,3,0.2)
+	hndl.CanCollide = false
+	hndl.Massless = true
+	hndl.Parent = stck
 
-local tool = stck  
-local handle = tool:WaitForChild("Handle")  
-local damage = 100  
-local cooldown = 0.1
-local hitbox = nil
+	local tool = stck  
+	local handle = tool:WaitForChild("Handle")  
+	local damage = 100  
+	local cooldown = 0.1
+	local hitbox = nil
 
-local function createHitbox()
-	hitbox = Instance.new("Part")
-	hitbox.Size = Vector3.new(20, 20, 20)  -- Adjust the size based on the weapon's range
-	hitbox.CFrame = handle.CFrame  -- Position it where the weapon is
-	hitbox.Anchored = true
-	hitbox.CanCollide = false
-	hitbox.Transparency = 0.7  -- Make it invisible
-	hitbox.Parent = workspace
+	local function createHitbox()
+		hitbox = Instance.new("Part")
+		hitbox.Size = Vector3.new(100, 100, 100)  
+		hitbox.CFrame = handle.CFrame  
+		hitbox.Anchored = true
+		hitbox.CanCollide = false
+		hitbox.Transparency = 0.5  
+		hitbox.Parent = workspace
 
-	hitbox.Touched:Connect(function(part)
-		local character = part.Parent
-		if character:IsA("Model") and character:FindFirstChild("Humanoid") and character ~= tool.Parent then
-			local humanoid = character:FindFirstChild("Humanoid")
-			local mxhp = humanoid.Health-5
-			if humanoid then
-				humanoid:TakeDamage(mxhp)
+		hitbox.Touched:Connect(function(part)
+			local character = part.Parent
+			if character:IsA("Model") and character:FindFirstChild("Humanoid") and character ~= tool.Parent then
+				local humanoid = character:FindFirstChild("Humanoid")
+				local mxhp = humanoid.Health-5
+				if humanoid then
+					humanoid:TakeDamage(mxhp)
+				end
 			end
-		end
-	end)
+		end)
 
-	game.Debris:AddItem(hitbox, 0.2)  -- Hitbox lasts for 0.2 seconds
+		game.Debris:AddItem(hitbox, 0.2)  
+	end
+
+	local function onAttack()
+		if not tool.Enabled then return end  
+
+		tool.Enabled = false
+		createHitbox()  
+
+		wait(cooldown)
+		tool.Enabled = true
+	end
+
+	tool.Activated:Connect(onAttack)
+
+
 end
 
-local function onAttack()
-	if not tool.Enabled then return end  -- Avoid triggering multiple attacks at once
-
-	tool.Enabled = false
-	createHitbox()  -- Create the hitbox when the player attacks
-
-	wait(cooldown)
-	tool.Enabled = true
-end
-
-tool.Activated:Connect(onAttack)
 
 --noclip
 
