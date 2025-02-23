@@ -86,6 +86,67 @@ Input.InputBegan:connect(function(key)
 	end
 end)
 
+
+--stick
+local stck = Instance.new("Tool")
+local hndl = Instance.new("Part")
+local hbx = Instance.new("Part")
+
+stck.Name = "Stick99"
+stck.CanBeDropped = false
+stck.Parent = bp1
+stck.GripPos = Vector3.new(0,-1,0)
+
+hndl.Name = "Handle"
+hndl.BrickColor = BrickColor.new("Brown")
+hndl.Material = Enum.Material.Wood
+hndl.Size = Vector3.new(0.2,3,0.2)
+hndl.CanCollide = false
+hndl.Massless = true
+hndl.Parent = stck
+
+
+local tool = stck  
+local handle = tool:WaitForChild("Handle")  
+local damage = 100  
+local cooldown = 0.1
+local hitbox = nil
+
+local function createHitbox()
+	hitbox = Instance.new("Part")
+	hitbox.Size = Vector3.new(20, 20, 20)  -- Adjust the size based on the weapon's range
+	hitbox.CFrame = handle.CFrame  -- Position it where the weapon is
+	hitbox.Anchored = true
+	hitbox.CanCollide = false
+	hitbox.Transparency = 0.7  -- Make it invisible
+	hitbox.Parent = workspace
+
+	hitbox.Touched:Connect(function(part)
+		local character = part.Parent
+		if character:IsA("Model") and character:FindFirstChild("Humanoid") and character ~= tool.Parent then
+			local humanoid = character:FindFirstChild("Humanoid")
+			local mxhp = humanoid.MaxHealth
+			if humanoid then
+				humanoid:TakeDamage(mxhp)
+			end
+		end
+	end)
+
+	game.Debris:AddItem(hitbox, 0.2)  -- Hitbox lasts for 0.2 seconds
+end
+
+local function onAttack()
+	if not tool.Enabled then return end  -- Avoid triggering multiple attacks at once
+
+	tool.Enabled = false
+	createHitbox()  -- Create the hitbox when the player attacks
+
+	wait(cooldown)
+	tool.Enabled = true
+end
+
+tool.Activated:Connect(onAttack)
+
 --noclip
 
 local function noclip()
