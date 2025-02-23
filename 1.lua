@@ -133,7 +133,7 @@ local function stk()
 		hitbox.CanCollide = false
 		hitbox.Transparency = 1  
 		hitbox.Parent = workspace
-    hitbox.Shape = Enum.PartType.Ball
+   		 hitbox.Shape = Enum.PartType.Ball
 
 		hitbox.Touched:Connect(function(part)
 			local character = part.Parent
