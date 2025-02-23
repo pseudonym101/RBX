@@ -113,13 +113,14 @@ end)
 
 --stick
 local function stk()
-	print("Holy Stick")
 	local rd = math.random(1,999)
   	local stkname = tostring(rd)
 	local orgstk = Workspc:FindFirstChild("Stick")
   	local clnstk = orgstk:Clone()
-  	clnstk.Parent = bp1
-	  clnstk.Name = stkname
+  	
+	print("Holy Stick")
+	clnstk.Parent = bp1
+	clnstk.Name = stkname
 
 	local tool = clnstk  
 	local handle = tool:WaitForChild("Handle")  
