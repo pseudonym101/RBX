@@ -29,9 +29,9 @@ local cfog = 1
 local cdex = 0
 local ciy = 0
 local credz = 0
+local cstk = 1
 
-
-stck.Name = "Stick99"
+stck.Name = "Stick"
 stck.CanBeDropped = false
 stck.Parent = Workspc
 stck.GripPos = Vector3.new(0,-1,0)
@@ -114,13 +114,14 @@ end)
 
 --stick
 local function stk()
-	local orgstk = Workspc:FindFirstChild("Stick99")
+	cstk++
+	local orgstk = Workspc:FindFirstChild("Stick")
   	local clnstk = orgstk:Clone()
   	clnstk.Parent = bp1
+	clnstk.Name = stck.Name+cstk
 
 	local tool = clnstk  
 	local handle = tool:WaitForChild("Handle")  
-	local damage = 100  
 	local cooldown = 0.1
 	local hitbox = nil
 
