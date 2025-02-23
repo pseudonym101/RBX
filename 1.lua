@@ -17,7 +17,6 @@ local hndl = Instance.new("Part")
 local hbx = Instance.new("Part")
 
 local py1 = Players.localPlayer
-local bp1 = py1:FindFirstChild("Backpack")
 
 
 local Noclip = nil
@@ -113,11 +112,11 @@ end)
 
 --stick
 local function stk()
+	local bp1 = py1:FindFirstChild("Backpack")
 	local rd = math.random(1,999)
   	local stkname = tostring(rd)
 	local orgstk = Workspc:FindFirstChild("Stick")
   	local clnstk = orgstk:Clone()
-  	
 	print("Holy Stick")
 	clnstk.Parent = bp1
 	clnstk.Name = stkname
