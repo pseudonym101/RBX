@@ -10,8 +10,12 @@ local zbtn1 = Instance.new("TextButton")
 local zbtn2 = Instance.new("TextButton")
 local zbtn3 = Instance.new("TextButton")
 local zbtn4 = Instance.new("TextButton")
+local stck = Instance.new("Tool")
+local hndl = Instance.new("Part")
+local hbx = Instance.new("Part")
 
 local py1 = Players.localPlayer
+local bp = py1.Backpack
 
 
 local Noclip = nil
@@ -28,8 +32,21 @@ local credz = 0
  
 Players.LocalPlayer.CameraMaxZoomDistance = 500
 
-zgui.Parent = COREGUI
 
+stck.Name = "Stick99"
+stck.CanBeDropped = false
+stck.Parent = bp1
+stck.GripPos = Vector3.new(0,-1,0)
+
+hndl.Name = "Handle"
+hndl.BrickColor = BrickColor.new("Brown")
+hndl.Material = Enum.Material.Wood
+hndl.Size = Vector3.new(0.2,3,0.2)
+hndl.CanCollide = false
+hndl.Massless = true
+hndl.Parent = stck
+
+zgui.Parent = COREGUI
 
 zframe.Name = "menu"
 zframe.Parent = zgui
@@ -88,22 +105,7 @@ end)
 
 
 --stick
-local stck = Instance.new("Tool")
-local hndl = Instance.new("Part")
-local hbx = Instance.new("Part")
 
-stck.Name = "Stick99"
-stck.CanBeDropped = false
-stck.Parent = bp1
-stck.GripPos = Vector3.new(0,-1,0)
-
-hndl.Name = "Handle"
-hndl.BrickColor = BrickColor.new("Brown")
-hndl.Material = Enum.Material.Wood
-hndl.Size = Vector3.new(0.2,3,0.2)
-hndl.CanCollide = false
-hndl.Massless = true
-hndl.Parent = stck
 
 
 local tool = stck  
