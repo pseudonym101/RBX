@@ -16,7 +16,7 @@ local hndl = Instance.new("Part")
 local hbx = Instance.new("Part")
 
 local py1 = Players.localPlayer
-local bp1 = py1.Backpack
+local bp1 = py1.:FindFirstChild("Backpack")
 
 
 local Noclip = nil
