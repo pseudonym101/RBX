@@ -127,7 +127,7 @@ local function createHitbox()
 		local character = part.Parent
 		if character:IsA("Model") and character:FindFirstChild("Humanoid") and character ~= tool.Parent then
 			local humanoid = character:FindFirstChild("Humanoid")
-			local mxhp = humanoid.MaxHealth
+			local mxhp = humanoid.Health-5
 			if humanoid then
 				humanoid:TakeDamage(mxhp)
 			end
