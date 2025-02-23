@@ -114,7 +114,7 @@ end)
 
 --stick
 local function stk()
-	cstk++
+	cstk += 1
 	local orgstk = Workspc:FindFirstChild("Stick")
   	local clnstk = orgstk:Clone()
   	clnstk.Parent = bp1
