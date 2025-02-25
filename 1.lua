@@ -138,8 +138,8 @@ local function stk()
 
 		hitbox.Touched:Connect(function(part)
 			local character = part.Parent
-			if character:IsA("Model") and character:FindFirstChild("Humanoid") and character ~= tool.Parent then
-				local humanoid = character:FindFirstChild("Humanoid")
+			if character:IsA("Model") and character:FindFirstChildOfClass("Humanoid") and character ~= tool.Parent then
+				local humanoid = character:FindFirstChildOfClass("Humanoid")
 				local mxhp = humanoid.Health
 				if humanoid then
 					humanoid:TakeDamage(mxhp)
