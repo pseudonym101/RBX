@@ -174,16 +174,6 @@ local cn8 = zcn:Clone()
 cn8.Parent = zbtn8
 addBorder(zbtn8, 3)
 
---dropdown table
-local zscfrm1 = zscfrm:Clone()
-zscfrm1.Parent = zframe
-
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local folder = ReplicatedStorage:WaitForChild("Modules")
-local list = require(folder:WaitForChild("ListModule"))
-
-
-
 local zbtn9 = zbtn:Clone()
 zbtn9.Name = "button9"
 zbtn9.Parent = zframe
@@ -193,46 +183,6 @@ zbtn9.Text = "Body"
 local cn9 = zcn:Clone()
 cn9.Parent = zbtn9
 addBorder(zbtn9, 2)
-
-local isDDopen = false -- สถานะปัจจุบันของ Dropdown (เปิด/ปิด)
-
--- ตั้งค่าเริ่มต้น
-zscfrm1.Visible = false
-zbtn9.Text = "Car" -- ข้อความเริ่มต้น
-
---- ฟังก์ชันสำหรับสร้างปุ่มตัวเลือก ---
-local function createOptionButton(carName)
-	-- สร้าง TextButton ใหม่สำหรับแต่ละตัวเลือก
-	local optbtn = Instance.new("TextButton")
-	optbtn.Parent = zscfrm1
-	optbtn.Text = carName
-	optbtn.Size = UDim2.new(1, 0, 0, 30) -- ปรับขนาดให้เต็มความกว้าง
-	optbtn.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
-	
-	-- ตั้งค่า Event เมื่อคลิกปุ่มตัวเลือก
-	optbtn.MouseButton1Click:Connect(function()
-		zbtn9.Text = carName -- เปลี่ยนข้อความ Header เป็นชื่อรถที่เลือก
-		zscfrm1.Visible = false  -- ซ่อนรายการตัวเลือก
-		isDDopen = false
-		
-		-- ตรงนี้คือสิ่งที่คุณจะเอาไปทำต่อได้ (เช่น ส่งข้อมูลไปให้สคริปต์อื่น)
-		print("Selected Car:", carName)
-		local carData = list.ItemsStats[carName]
-		print("Car Price:", carData.BuyPrice)
-	end)
-end
-
--- วนลูปในตาราง ItemsStats เพื่อสร้างปุ่มแต่ละอัน
-for carName, _ in pairs(list.ItemsStats) do
-	createOptionButton(carName)
-end
-
---- ฟังก์ชันสำหรับจัดการเมื่อคลิก Header ---
-zbtn9.MouseButton1Click:Connect(function()
-	isDDopen = not isDDopen -- สลับสถานะ
-	zscfrm1.Visible = isDDopen -- แสดง/ซ่อนรายการตัวเลือก
-end)
-
 
 local zbtn10 = zbtn:Clone()
 zbtn10.Name = "button10"
@@ -254,21 +204,46 @@ local cn11 = zcn:Clone()
 cn11.Parent = zbtn11
 addBorder(zbtn11, 2)
 
-local ip4 = zip:Clone()	--exhuast
-ip4.Parent = zframe
-ip4.Position = UDim2.new(0, 100, 0, 68)
+local zbtn12 = zbtn:Clone()
+zbtn12.Name = "button12"
+zbtn12.Parent = zframe
+zbtn12.Position = UDim2.new(0, 100, 0, 68)
+zbtn12.Size = UDim2.new(0,70,0,20)
+zbtn12.Text = "Exhuast"
+local cn12 = zcn:Clone()
+cn12.Parent = zbtn12
+addBorder(zbtn12, 2)
 
-local ip5 = zip:Clone()	--spoiler
-ip5.Parent = zframe
-ip5.Position = UDim2.new(0, 100, 0, 90)
+local zbtn13 = zbtn:Clone()
+zbtn13.Name = "button13"
+zbtn13.Parent = zframe
+zbtn13.Position = UDim2.new(0, 100, 0, 90)
+zbtn13.Size = UDim2.new(0,70,0,20)
+zbtn13.Text = "Spoiler"
+local cn13 = zcn:Clone()
+cn13.Parent = zbtn13
+addBorder(zbtn13, 2)
 
-local ip6 = zip:Clone()	--ornament
-ip6.Parent = zframe
-ip6.Position = UDim2.new(0, 100, 0, 112)
+local zbtn14 = zbtn:Clone()
+zbtn14.Name = "button14"
+zbtn14.Parent = zframe
+zbtn14.Position = UDim2.new(0, 100, 0, 112)
+zbtn14.Size = UDim2.new(0,70,0,20)
+zbtn14.Text = "Oornament"
+local cn14 = zcn:Clone()
+cn14.Parent = zbtn14
+addBorder(zbtn14, 2)
 
-local ip7 = zip:Clone() --splitter
-ip7.Parent = zframe
-ip7.Position = UDim2.new(0, 100, 0, 134)
+local zbtn15 = zbtn:Clone()
+zbtn15.Name = "button15"
+zbtn15.Parent = zframe
+zbtn15.Position = UDim2.new(0, 100, 0, 134)
+zbtn15.Size = UDim2.new(0,70,0,20)
+zbtn15.Text = "Splitter"
+local cn15 = zcn:Clone()
+cn15.Parent = zbtn15
+addBorder(zbtn15, 2)
+
 
 Input.InputBegan:connect(function(key)
 	local function onoff()
@@ -603,91 +578,88 @@ local clr9 = {
 	"Secondary"
 }
 
---[[
-ip1.FocusLost:Connect(function(enterPressed)
-	if enterPressed then
-		local input = ip1.Text
-		if input ~= "" then
-			buy1[1] = input
-			bld1[2] = input
-		else
+--dropdown table
+local zscfrm1 = zscfrm:Clone()
+zsvfrm1.Position = UDim2.new(0, 180, 0, 20)
+zscfrm1.Size = UDim2.new(0,150,0,150)
+zscfrm1.Parent = zframe
 
-		end
-	end
-end)
 
-ip2.FocusLost:Connect(function(enterPressed)
-	if enterPressed then
-		local input = ip2.Text
-		if input ~= "" then
-			buy2[1] = input
-			bld4[2] = input
-		else
+local zlstlo = Instance.new("UIListLayout")
+zlstlo.Parent = zscfrm1
+zlstlo.Padding = UDim.new(0, 5) 
 
-		end
-	end
-end)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local folder = ReplicatedStorage:WaitForChild("Modules")
+local list = require(folder:WaitForChild("ListModule"))
 
-ip3.FocusLost:Connect(function(enterPressed)
-	if enterPressed then
-		local input = ip3.Text
-		if input ~= "" then
-			buy3[1] = input
-			bld2[2] = input
-		else
+local isDDopen = false
 
-		end
-	end
-end)
+zscfrm1.Visible = false
+zbtn9.Text = "Car"
 
-ip4.FocusLost:Connect(function(enterPressed)
-	if enterPressed then
-		local input = ip4.Text
-		if input ~= "" then
-			buy4[1] = input
-			bld3[2] = input
-		else
+local function caopt1(carName)
+	local optbtn = Instance.new("TextButton")
+	optbtn.Parent = zscfrm1
+	optbtn.Text = carName
+	optbtn.Size = UDim2.new(1, 0, 0, 20)
+	optbtn.BackgroundColor3 = Color3.new(59, 59, 59)
+	optbtn.TextColor3 = Color3.new(233, 233, 233)
+	TextScaled = true
+	local cn10 = zcn:Clone()
+	cn10.Parent = optbtn
+	addBorder(optbtn, 2)
+	
+	
+	optbtn.MouseButton1Click:Connect(function()
+		zbtn9.Text = carName
+		zscfrm1.Visible = false
+		isDDopen = false
+		
+		buy1[1] = carName
+		bld1[2] = carName
 
-		end
-	end
-end)
+	end)
+end
 
-ip5.FocusLost:Connect(function(enterPressed)
-	if enterPressed then
-		local input = ip5.Text
-		if input ~= "" then
-			buy5[1] = input
-			bld5[2] = input
-		else
+for carName, _ in pairs(list.ItemsStats) do
+	caopt1(carName)
+end
 
-		end
-	end
-end)
+local function caopt2(mrrName)
+	local optbtn = Instance.new("TextButton")
+	optbtn.Parent = zscfrm1
+	optbtn.Text = mrrName
+	optbtn.Size = UDim2.new(1, 0, 0, 20)
+	optbtn.BackgroundColor3 = Color3.new(59, 59, 59)
+	optbtn.TextColor3 = Color3.new(233, 233, 233)
+	TextScaled = true
+	local cn10 = zcn:Clone()
+	cn10.Parent = optbtn
+	addBorder(optbtn, 2)
+	
+	
+	optbtn.MouseButton1Click:Connect(function()
+		zbtn10.Text = mrrName
+		zscfrm1.Visible = false
+		isDDopen = false
+		
+		buy1[2] = mrrName
+		bld1[4] = mrrName
 
-ip6.FocusLost:Connect(function(enterPressed)
-	if enterPressed then
-		local input = ip6.Text
-		if input ~= "" then
-			buy6[1] = input
-			bld6[2] = input
-		else
+	end)
+end
 
-		end
-	end
-end)
+for mrrName, _ in pairs(list.ItemsStats) do
+	caopt2(mrrName)
+end
 
-ip7.FocusLost:Connect(function(enterPressed)
-	if enterPressed then
-		local input = ip7.Text
-		if input ~= "" then
-			buy7[1] = input
-			bld7[2] = input
-		else
+local function ndd()
+	isDDopen = not isDDopen 
+	zscfrm1.Visible = isDDopen 
+end
 
-		end
-	end
-end)
-]]
+
 
 local function by1()
 		game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("PlayerEvents"):WaitForChild("BuyItem"):FireServer(unpack(buy1))
@@ -787,3 +759,5 @@ zbtn5.MouseButton1Click:Connect(ncc)
 zbtn6.MouseButton1Click:Connect(nby)
 zbtn7.MouseButton1Click:Connect(nbl)
 zbtn8.MouseButton1Click:Connect(nct)
+zbtn9.MouseButton1Click:Connect(ndd)
+zbtn10.MouseButton1Click:Connect(ndd)
