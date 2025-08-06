@@ -5,6 +5,7 @@ Input = game:GetService("UserInputService")
 
 local zgui = Instance.new("ScreenGui")
 local zframe = Instance.new("Frame")
+local zscfrm = Instance.new("ScrollingFrame")
 local zcn = Instance.new("UICorner")
 local zlb = Instance.new("TextLabel")
 local zbtn = Instance.new("TextButton")
@@ -142,9 +143,6 @@ zbtn5.Size = UDim2.new(0,70,0,20)
 zbtn5.Text = "Cancel"
 local cn5 = zcn:Clone()
 cn5.Parent = zbtn5
-local Cdd = zddn:Clone()
-Cdd.Parent = zbtn5
-addBorder(zbtn5, 3)
 
 local zbtn6 = zbtn:Clone()
 zbtn6.Name = "button6"
@@ -176,17 +174,85 @@ local cn8 = zcn:Clone()
 cn8.Parent = zbtn8
 addBorder(zbtn8, 3)
 
-local ip1 = zip:Clone()	--car
-ip1.Parent = zframe
-ip1.Position = UDim2.new(0, 100, 0, 2)
+--dropdown table
+local zscfrm1 = zscfrm:Clone()
+zscfrm1.Parent = zframe
 
-local ip2 = zip:Clone()	--mirror
-ip2.Parent = zframe
-ip2.Position = UDim2.new(0, 100, 0, 24)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local folder = ReplicatedStorage:WaitForChild("Modules")
+local list = require(folder:WaitForChild("ListModule"))
+local ItemStats = list.ItemsStats
 
-local ip3 = zip:Clone()	--tire
-ip3.Parent = zframe
-ip3.Position = UDim2.new(0, 100, 0, 46)
+
+local zbtn9 = zbtn:Clone()
+zbtn9.Name = "button9"
+zbtn9.Parent = zframe
+zbtn9.Position = UDim2.new(0, 100, 0, 2)
+zbtn9.Size = UDim2.new(0,70,0,20)
+zbtn9.Text = "Body"
+local cn9 = zcn:Clone()
+cn9.Parent = zbtn9
+addBorder(zbtn9, 2)
+
+local isDDopen = false -- สถานะปัจจุบันของ Dropdown (เปิด/ปิด)
+
+-- ตั้งค่าเริ่มต้น
+zscfrm1.Visible = false
+zbtn9.Text = "Car" -- ข้อความเริ่มต้น
+
+--- ฟังก์ชันสำหรับสร้างปุ่มตัวเลือก ---
+local function createOptionButton(carName)
+	-- สร้าง TextButton ใหม่สำหรับแต่ละตัวเลือก
+	local optbtn = Instance.new("TextButton")
+	optbtn.Parent = zscfrm1
+	optbtn.Text = carName
+	optbtn.Size = UDim2.new(1, 0, 0, 30) -- ปรับขนาดให้เต็มความกว้าง
+	optbtn.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
+	
+	-- ตั้งค่า Event เมื่อคลิกปุ่มตัวเลือก
+	optbtn.MouseButton1Click:Connect(function()
+		zbtn9.Text = carName -- เปลี่ยนข้อความ Header เป็นชื่อรถที่เลือก
+		zscfrm1.Visible = false  -- ซ่อนรายการตัวเลือก
+		isDDopen = false
+		
+		-- ตรงนี้คือสิ่งที่คุณจะเอาไปทำต่อได้ (เช่น ส่งข้อมูลไปให้สคริปต์อื่น)
+		print("Selected Car:", carName)
+		local carData = ItemsStats[carName]
+		print("Car Price:", carData.BuyPrice)
+	end)
+end
+
+-- วนลูปในตาราง ItemsStats เพื่อสร้างปุ่มแต่ละอัน
+for carName, _ in pairs(ItemsStats) do
+	createOptionButton(carName)
+end
+
+--- ฟังก์ชันสำหรับจัดการเมื่อคลิก Header ---
+zbtn9.MouseButton1Click:Connect(function()
+	isDDopen = not isDDopen -- สลับสถานะ
+	zscfrm1.Visible = isDDopen -- แสดง/ซ่อนรายการตัวเลือก
+end)
+
+
+local zbtn10 = zbtn:Clone()
+zbtn10.Name = "button10"
+zbtn10.Parent = zframe
+zbtn10.Position = UDim2.new(0, 100, 0, 24)
+zbtn10.Size = UDim2.new(0,70,0,20)
+zbtn10.Text = "Mirror"
+local cn10 = zcn:Clone()
+cn10.Parent = zbtn10
+addBorder(zbtn10, 2)
+
+local zbtn11 = zbtn:Clone()
+zbtn11.Name = "button11"
+zbtn11.Parent = zframe
+zbtn11.Position = UDim2.new(0, 100, 0, 46)
+zbtn11.Size = UDim2.new(0,70,0,20)
+zbtn11.Text = "Tire"
+local cn11 = zcn:Clone()
+cn11.Parent = zbtn11
+addBorder(zbtn11, 2)
 
 local ip4 = zip:Clone()	--exhuast
 ip4.Parent = zframe
