@@ -328,29 +328,6 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
 end)
 
 
---[[ dropdown items
-for i, itemText in ipairs({"Plot1", "Plot2", "Polt3", "Polt4", "Polt5", "Polt6"}) do
-	local option = Instance.new("TextButton")
-	option.Size = UDim2.new(1, -10, 0, 25)
-	option.Position = UDim2.new(0, 0, 0, (i - 1) * 30 + 5)
-	option.Text = itemText
-	option.Font = Enum.Font.Gotham
-	option.TextSize = 14
-	option.TextColor3 = Color3.fromRGB(200, 200, 200)
-	option.BackgroundColor3 = Color3.fromRGB(50, 50, 55)
-	option.AutoButtonColor = false
-	option.Parent = zdd
-
-	local optCorner = Instance.new("UICorner")
-	optCorner.CornerRadius = UDim.new(0, 6)
-	optCorner.Parent = option
-
-	-- Optional: what happens when you click an option
-	option.MouseButton1Click:Connect(function()
-		plt = itemText
-	end)
-end]]
-
 --noclip
 
 local function noclip()
@@ -626,7 +603,7 @@ local clr9 = {
 	"Secondary"
 }
 
-
+--[[
 ip1.FocusLost:Connect(function(enterPressed)
 	if enterPressed then
 		local input = ip1.Text
@@ -710,6 +687,7 @@ ip7.FocusLost:Connect(function(enterPressed)
 		end
 	end
 end)
+]]
 
 local function by1()
 		game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("PlayerEvents"):WaitForChild("BuyItem"):FireServer(unpack(buy1))
