@@ -580,7 +580,7 @@ local clr9 = {
 
 --dropdown table
 local zscfrm1 = zscfrm:Clone()
-zsvfrm1.Position = UDim2.new(0, 180, 0, 20)
+zscfrm1.Position = UDim2.new(0, 180, 0, 20)
 zscfrm1.Size = UDim2.new(0,150,0,150)
 zscfrm1.Parent = zframe
 
