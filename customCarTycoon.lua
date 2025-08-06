@@ -181,7 +181,7 @@ zscfrm1.Parent = zframe
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local folder = ReplicatedStorage:WaitForChild("Modules")
 local list = require(folder:WaitForChild("ListModule"))
-local ItemStats = list.ItemsStats
+
 
 
 local zbtn9 = zbtn:Clone()
@@ -217,13 +217,13 @@ local function createOptionButton(carName)
 		
 		-- ตรงนี้คือสิ่งที่คุณจะเอาไปทำต่อได้ (เช่น ส่งข้อมูลไปให้สคริปต์อื่น)
 		print("Selected Car:", carName)
-		local carData = ItemsStats[carName]
+		local carData = list.ItemsStats[carName]
 		print("Car Price:", carData.BuyPrice)
 	end)
 end
 
 -- วนลูปในตาราง ItemsStats เพื่อสร้างปุ่มแต่ละอัน
-for carName, _ in pairs(ItemsStats) do
+for carName, _ in pairs(list.ItemsStats) do
 	createOptionButton(carName)
 end
 
