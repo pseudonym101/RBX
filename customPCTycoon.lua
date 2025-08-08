@@ -159,7 +159,7 @@ zbtn7.Name = "button7"
 zbtn7.Parent = zframe
 zbtn7.Position = UDim2.new(0,2,0,134)
 zbtn7.Size = UDim2.new(0,70,0,20)
-zbtn7.Text = "Sell"
+zbtn7.Text = "Auto O"
 local cn7 = zcn:Clone()
 cn7.Parent = zbtn7
 addBorder(zbtn7, 3)
@@ -565,11 +565,13 @@ local function nauto()
 
 	if isLooping then
 		isLooping = false
+		zbtn7.Text = "Auto O"
 		if loopThread then
 			task.cancel(loopThread)
 		end
 	else
 		isLooping = true
+		zbtn7.Text = "Auto I"
 		loopThread = task.spawn(function()
 			while isLooping do
 				PCbuy()
@@ -589,5 +591,5 @@ zbtn3.MouseButton1Click:Connect(ndex)
 zbtn4.MouseButton1Click:Connect(niy)
 zbtn5.MouseButton1Click:Connect(PCbuy)
 zbtn6.MouseButton1Click:Connect(PCbld)
---zbtn7.MouseButton1Click:Connect()
+zbtn7.MouseButton1Click:Connect(nauto)
 --zbtn8.MouseButton1Click:Connect()
