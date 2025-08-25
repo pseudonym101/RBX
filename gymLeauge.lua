@@ -140,8 +140,6 @@ zbtn5.Size = UDim2.new(0,70,0,20)
 zbtn5.Text = "Build"
 local cn5 = zcn:Clone()
 cn5.Parent = zbtn5
-local Cdd = zddn:Clone()
-Cdd.Parent = zbtn5
 addBorder(zbtn5, 3)
 
 local zbtn6 = zbtn:Clone()
@@ -450,11 +448,11 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
 
     if input.KeyCode == Enum.KeyCode.F then
         if isLoopActive then
-            stopLoop()
-			zbtn5.Text = "Build O"
+				zbtn5.Text = "Build O"
+				stopLoop()
         else
-            startLoop()
-			zbtn5.Text = "Build I"
+				zbtn5.Text = "Build I"
+				startLoop()
 
         end
     end
@@ -489,3 +487,4 @@ zbtn6.MouseButton1Click:Connect(gearspn)
 zbtn7.MouseButton1Click:Connect(boltspn)
 
 --zbtn8.MouseButton1Click:Connect()
+
