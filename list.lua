@@ -4,6 +4,7 @@ local Games = {
 	[7449423635] = "", -- Blox Fruit Sea 3
 	[16775404767] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/customCarTycoon.lua", -- Custom Car Tycoon
 	[6442957604] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/customPCTycoon.lua", -- Custom PC Tycoon
+	[17450551531] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/gymLeauge.lua", -- Custom PC Tycoon
 
 }
 
