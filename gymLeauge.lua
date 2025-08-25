@@ -451,10 +451,10 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     if input.KeyCode == Enum.KeyCode.F then
         if isLoopActive then
             stopLoop()
-		zbtn.Text = "Build O"
+			zbtn5.Text = "Build O"
         else
             startLoop()
-		zbtn.Text = "Build I"
+			zbtn5.Text = "Build I"
 
         end
     end
@@ -487,4 +487,5 @@ zbtn4.MouseButton1Click:Connect(niy)
 --zbtn5.MouseButton1Click:Connect()
 zbtn6.MouseButton1Click:Connect(gearspn)
 zbtn7.MouseButton1Click:Connect(boltspn)
+
 --zbtn8.MouseButton1Click:Connect()
