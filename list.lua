@@ -5,6 +5,7 @@ local Games = {
 	[16775404767] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/customCarTycoon.lua", -- Custom Car Tycoon
 	[6442957604] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/customPCTycoon.lua", -- Custom PC Tycoon
 	[17450551531] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/gymLeauge.lua", -- Gym Leauge
+	[135630848872701] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/kingBoxing.lua", -- King Boxing
 
 }
 
