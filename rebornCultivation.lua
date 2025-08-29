@@ -431,36 +431,36 @@ end
 
 --herbs
 local sprg = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Spirit Grass"):WaitForChild("Spirit Grass")
+	workspace:WaitForChild("Herbs"):WaitForChild("Spirit Grass"):WaitForChild("Spirit Grass",1)
 }
 
 local gns = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Ginseng2"):WaitForChild("Ginseng")
+	workspace:WaitForChild("Herbs"):WaitForChild("Ginseng2"):WaitForChild("Ginseng",1)
 }
 
 local blf = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Blood Flower"):WaitForChild("Blood Flower")
+	workspace:WaitForChild("Herbs"):WaitForChild("Blood Flower"):WaitForChild("Blood Flower",1)
 }
 
 local lts = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Mesh3"):WaitForChild("Lotus")
+	workspace:WaitForChild("Herbs"):WaitForChild("Mesh3"):WaitForChild("Lotus",1)
 }
 
 local mnl = {
-	workspace:WaitForChild("Herbs"):WaitForChild("MoonLight"):WaitForChild("MoonLight Flower")
+	workspace:WaitForChild("Herbs"):WaitForChild("MoonLight"):WaitForChild("MoonLight Flower",1)
 }
 
 --ore
 local Iron = {
-	workspace:WaitForChild("Ore"):WaitForChild("Iron")
+	workspace:WaitForChild("Ore"):WaitForChild("Iron",1)
 }
 
 local Gold = {
-	workspace:WaitForChild("Ore"):WaitForChild("Gold")
+	workspace:WaitForChild("Ore"):WaitForChild("Gold",1)
 }
 
 local Ruby = {
-	workspace:WaitForChild("Ore"):WaitForChild("Ruby")
+	workspace:WaitForChild("Ore"):WaitForChild("Ruby",1)
 }
 
 --pill
@@ -519,3 +519,4 @@ end)
 --zbtn7.MouseButton1Click:Connect()
 
 --zbtn8.MouseButton1Click:Connect()
+
