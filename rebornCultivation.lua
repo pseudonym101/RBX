@@ -427,41 +427,7 @@ local function fireRemote(eventName, ...)
         warn("RemoteEvents folder is missing. Cannot fire remote event.")
     end
 end
-
-
---herbs
-local sprg = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Spirit Grass"):WaitForChild("Spirit Grass",1)
-}
-
-local gns = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Ginseng2"):WaitForChild("Ginseng",1)
-}
-
-local blf = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Blood Flower"):WaitForChild("Blood Flower",1)
-}
-
-local lts = {
-	workspace:WaitForChild("Herbs"):WaitForChild("Mesh3"):WaitForChild("Lotus",1)
-}
-
-local mnl = {
-	workspace:WaitForChild("Herbs"):WaitForChild("MoonLight"):WaitForChild("MoonLight Flower",1)
-}
-
---ore
-local Iron = {
-	workspace:WaitForChild("Ore"):WaitForChild("Iron",1)
-}
-
-local Gold = {
-	workspace:WaitForChild("Ore"):WaitForChild("Gold",1)
-}
-
-local Ruby = {
-	workspace:WaitForChild("Ore"):WaitForChild("Ruby",1)
-}
+	
 
 --pill
 local pill = {
@@ -477,21 +443,14 @@ local loopThread -- Store the running loop
 local function start()
     loopThread = task.spawn(function()
         while isRunning do
-	FireRemote("CollectHerb", unpack(sprg))
-	task.wait(0.1)
-	FireRemote("CollectHerb", unpack(gns))
-	task.wait(0.1)
-	FireRemote("CollectHerb", unpack(blf))
-	task.wait(0.1)
-	FireRemote("CollectHerb", unpack(lts))
-	task.wait(0.1)
-	FireRemote("CollectHerb", unpack(mnl))
-	task.wait(0.1)
-	FireRemote("MineOre", unpack(Iron))
-	task.wait(0.1)
-	FireRemote("MineOre", unpack(Gold))
-	task.wait(0.1)
-	FireRemote("MineOre", unpack(Ruby))
+	FireRemote("CollectHerb", workspace:WaitForChild("Herbs"):WaitForChild("Spirit Grass"):WaitForChild("Spirit Grass",1))
+	FireRemote("CollectHerb", workspace:WaitForChild("Herbs"):WaitForChild("Ginseng2"):WaitForChild("Ginseng",1))
+	FireRemote("CollectHerb", workspace:WaitForChild("Herbs"):WaitForChild("Blood Flower"):WaitForChild("Blood Flower",1))
+	FireRemote("CollectHerb", workspace:WaitForChild("Herbs"):WaitForChild("Mesh3"):WaitForChild("Lotus",1))
+	FireRemote("CollectHerb", workspace:WaitForChild("Herbs"):WaitForChild("MoonLight"):WaitForChild("MoonLight Flower",1))
+	FireRemote("MineOre", workspace:WaitForChild("Ore"):WaitForChild("Iron",1))
+	FireRemote("MineOre", workspace:WaitForChild("Ore"):WaitForChild("Gold",1))
+	FireRemote("MineOre", workspace:WaitForChild("Ore"):WaitForChild("Ruby",1))
 	task.wait(0.1)
         end
     end)
@@ -519,4 +478,3 @@ end)
 --zbtn7.MouseButton1Click:Connect()
 
 --zbtn8.MouseButton1Click:Connect()
-
