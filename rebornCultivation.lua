@@ -513,6 +513,9 @@ zbtn5.MouseButton1Click:Connect(function(gameProcessed)
 			zbtn5.Text = ("Farm O")
 		end
 end)
-zbtn6.MouseButton1Click:Connect(function(fireRemote("CraftPill", unpack(pill))))
+zbtn6.MouseButton1Click:Connect(function()
+    fireRemote("CraftPill", unpack(pill))
+end)
 --zbtn7.MouseButton1Click:Connect()
+
 --zbtn8.MouseButton1Click:Connect()
