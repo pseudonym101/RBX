@@ -538,10 +538,10 @@ local function repair()
 		fireclickdetector(btn3)
 		fireclickdetector(btn4)
 		fireclickdetector(btn5)
-		fireclickdetector(btn6)
+		fireclickdetector(btn6)	
 end
 
-local functions fix()			
+local function fix()			
 	--remove part
 	fireRemote("PartsEvent", "RemovePart", "Battery")
 	task.wait(0.1)
@@ -591,6 +591,8 @@ local to = {
 }
 --game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PartsEvent"):FireServer(unpack(to))
 
+local sell = workspace.Map.SellCar.Prompt.ProximityPrompt
+
 --btn
 zbtn1.MouseButton1Click:Connect(nclip)
 zbtn2.MouseButton1Click:Connect(nfog)
@@ -615,5 +617,5 @@ zbtn9.MouseButton1Click:Connect(function()
 end)
 
 abtn10.MouseButton1Click:Connect(function()
-	workspace.Map.SellCar.Prompt.ProximityPrompt
+	fireproximityprompt(sell)
 end)
