@@ -1,6 +1,6 @@
 COREGUI = game:GetService("CoreGui")
 Players = game:GetService("Players")
-Workspc = game:GetService("Workspace")
+workspace = game:GetService("Workspace")
 Input = game:GetService("UserInputService")
 
 local zgui = Instance.new("ScreenGui")
@@ -355,7 +355,7 @@ game.Lighting.GlobalShadows = true
 end)
 game.Lighting.DescendantAdded:Connect(function(obj)
 -- if obj:IsA("") or obj:IsA("Sky") or obj:IsA("BlurEffect") or obj:IsA("BloomEffect") or obj:IsA("SunRaysEffect") then
-if obj:IsA("") or obj:IsA("Sky") or obj:IsA("BloomEffect") or obj:IsA("SunRaysEffect") then
+if obj:IsA("Sky") or obj:IsA("BloomEffect") or obj:IsA("SunRaysEffect") then
 obj:Destroy()
 end
 end)
