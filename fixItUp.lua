@@ -454,21 +454,19 @@ cars.ChildRemoved:Connect(findCar)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local rmtev = workspace:WaitForChild("Vehicles"):WaitForChild(tostring(car))
 
-if not rmtev then
-    warn("Failed to find the RemoteEvents folder!")
-end
-
 local function fireRemote(eventName, ...)
-    if rmtev then
-        local remoteEvent = rmtev:WaitForChild(eventName)
-        if remoteEvent then
-            remoteEvent:FireServer(...)
-        else
-            warn("Failed to find RemoteEvent named: " .. eventName)
-        end
-    else
-        warn("RemoteEvents folder is missing. Cannot fire remote event.")
-    end
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local rmtev = workspace:WaitForChild("Vehicles"):WaitForChild(tostring(car))
+	if rmtev then
+		local remoteEvent = rmtev:WaitForChild(eventName)
+			if remoteEvent then
+			remoteEvent:FireServer(...)
+			else
+			warn("Failed to find RemoteEvent named: " .. eventName)
+			end
+	else
+		warn("RemoteEvents folder is missing. Cannot fire remote event.")
+	end
 end
 
 local shppos = CFrame.new(-353.395691, 6.00390816, -1492.6355,
@@ -616,7 +614,6 @@ zbtn9.MouseButton1Click:Connect(function()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vehicles"):WaitForChild("GetModel"):InvokeServer(unpack(buy1))
 end)
 
-zbtn10.MouseButton1Click:Connect(function()
+abtn10.MouseButton1Click:Connect(function()
 	fireproximityprompt(sell)
 end)
-
