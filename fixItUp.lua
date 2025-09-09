@@ -49,7 +49,6 @@ zframe.Position = UDim2.new(0,100,0,100)
 zframe.Size = UDim2.new(0,500,0,500)
 zframe.Visible = true
 zframe.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
-zframe.BackgroundTransparency = 0
 zframe.BorderSizePixel = 0
 --zframe.AnchorPoint = Vector2.new(0.5, 0.5)
 zframe.ClipsDescendants = true
@@ -228,12 +227,12 @@ Input.InputBegan:connect(function(key)
 			warn("zframe is nil!")
         		return
 		end
-		if vsb1 == 1 then
-			vsb1 = 0
+		if vsb == 1 then
+			vsb = 0
 			zframe.Visible = true
 			task.wait(0.1)
 		else
-			vsb1 = 1
+			vsb = 1
 			zframe.Visible = false
 			task.wait(0.1)
 		end
@@ -287,7 +286,7 @@ local function noclip()
 	local function Nocl()
 		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
 			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+				if v:IsA('BasePart') and v.CanCollide and then
 					v.CanCollide = false
 
 				end
@@ -325,7 +324,7 @@ repeat task.wait() until game:IsLoaded()
 wait(5) -- extra load to ensure the script is working
 for i,v in pairs(game.Lighting:GetChildren()) do
 -- if v:IsA("") or v:IsA("Sky") or v:IsA("BlurEffect") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
-if v:IsA("") or v:IsA("Sky") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
+if v:IsA("Sky") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
 v:Destroy()
 end
 end
@@ -606,6 +605,7 @@ end)
 
 zbtn7.MouseButton1Click:Connect(function()
 	py:MoveTo(frontshp.Position)
+end)
 
 zbtn8.MouseButton1Click:Connect(fix)
 
