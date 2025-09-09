@@ -591,8 +591,7 @@ zbtn4.MouseButton1Click:Connect(niy)
 
 zbtn5.MouseButton1Click:Connect(function()
 	local callCar = {
-		game:GetService("Players").LocalPlayer:WaitForChild("PlayerData"):WaitForChild("Garage"):GetChildren()[2],
-		CFrame.new(frontPosition)
+		game:GetService("Players").LocalPlayer:WaitForChild("PlayerData"):WaitForChild("Garage"):GetChildren()[2], frontPosition
 	}
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vehicles"):WaitForChild("RemoteLoad"):InvokeServer(unpack(callCar))
 end)
@@ -606,7 +605,7 @@ zbtn6.MouseButton1Click:Connect(function()
 end)
 
 zbtn7.MouseButton1Click:Connect(function()
-	py:moveTo(frontshp)
+	py:MoveTo(frontshp.Position)
 
 zbtn8.MouseButton1Click:Connect(fix)
 
@@ -615,6 +614,6 @@ zbtn9.MouseButton1Click:Connect(function()
 end)
 
 zbtn10.MouseButton1Click:Connect(function()
-	py:moveTo(seller)
+	py:MoveTo(seller.Position)
 	fireproximityprompt(sell)
 end)
