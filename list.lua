@@ -7,6 +7,7 @@ local Games = {
 	[17450551531] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/gymLeauge.lua", -- Gym Leauge
 	[135630848872701] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/kingBoxing.lua", -- King Boxing
 	[102686217723755] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/rebornCultivation.lua", -- Reborn Cultivation
+	[72712036210947] = "https://raw.githubusercontent.com/pseudonym101/RBX/path1/fixItUp.lua", -- Fix It Up
 
 }
 
