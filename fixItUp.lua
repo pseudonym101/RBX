@@ -559,9 +559,9 @@ local function fix()
 	fireRemote("PartsEvent", "RemovePart", "CylinderHead")
 	task.wait(0.1)
 	fireRemote("PartsEvent", "RemovePart", "EngineBlock")
-	task.wait(0.1)
+	task.wait(0.2)
 	move()
-	task.wait(0.1)
+	task.wait(1.5)
 	repair()
 	task.wait(10)
 	--Reapply Part
@@ -600,7 +600,7 @@ zbtn5.MouseButton1Click:Connect(function()
 	local distance = 10 -- how many studs in front
 	local frontPosition = root.CFrame * CFrame.new(0, 0, -distance)
 	local callCar = {
-		game:GetService("Players").LocalPlayer:WaitForChild("PlayerData"):WaitForChild("Garage"):GetChildren()[2], frontPosition
+		game:GetService("Players").LocalPlayer:WaitForChild("PlayerData"):WaitForChild("Garage"):GetChildren()[3], frontPosition
 	}
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vehicles"):WaitForChild("RemoteLoad"):InvokeServer(unpack(callCar))
 end)
