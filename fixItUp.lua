@@ -193,6 +193,17 @@ local cn10 = zcn:Clone()
 cn10.Parent = zbtn10
 addBorder(zbtn10, 3)
 
+local zbtn11 = zbtn:Clone()
+zbtn11.Name = "button11"
+zbtn11.Parent = zframe
+zbtn11.Position = UDim2.new(0,2,0,222)
+zbtn11.Size = UDim2.new(0,70,0,20)
+zbtn11.Text = "Sell"
+local cn11 = zcn:Clone()
+cn11.Parent = zbtn11
+addBorder(zbtn11, 3)
+
+
 local ip1 = zip:Clone()	
 ip1.Parent = zframe
 ip1.Position = UDim2.new(0, 100, 0, 2)
@@ -615,4 +626,13 @@ end)
 zbtn10.MouseButton1Click:Connect(function()
 	py:MoveTo(seller.Position)
 	fireproximityprompt(sell)
+end)
+
+zbtn11.MouseButton1Click:Connect(function()
+	local player = game.Players.LocalPlayer
+	local char = player.Character or player.CharacterAdded:Wait()
+	local root = char:WaitForChild("HumanoidRootPart")
+	local distance = 10 -- how many studs in front
+	local frontPosition = root.CFrame * CFrame.new(0, 0, -distance)
+	car:Moveto(frontPosition)
 end)
