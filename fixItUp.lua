@@ -189,7 +189,7 @@ zbtn10.Name = "button10"
 zbtn10.Parent = zframe
 zbtn10.Position = UDim2.new(0,2,0,200)
 zbtn10.Size = UDim2.new(0,70,0,20)
-zbtn10.Text = "Fix"
+zbtn10.Text = "Sell"
 local cn10 = zcn:Clone()
 cn10.Parent = zbtn10
 addBorder(zbtn10, 3)
@@ -614,6 +614,6 @@ zbtn9.MouseButton1Click:Connect(function()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vehicles"):WaitForChild("GetModel"):InvokeServer(unpack(buy1))
 end)
 
-abtn10.MouseButton1Click:Connect(function()
+zbtn10.MouseButton1Click:Connect(function()
 	fireproximityprompt(sell)
 end)
