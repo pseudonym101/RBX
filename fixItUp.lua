@@ -558,7 +558,7 @@ local function fix()
 	move()
 	task.wait(0.1)
 	repair()
-	wait(10)
+	task.wait(10)
 	--Reapply Part
 	fireRemote("PartsEvent", "ReapplyPart", "Battery")
 	task.wait(0.1)
