@@ -431,7 +431,7 @@ local player = game.Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 local root = char:WaitForChild("HumanoidRootPart")
 local distance = 10 -- how many studs in front
-local frontPosition = root.Position + (root.CFrame.LookVector * distance)
+local frontPosition = root.CFrame * CFrame.new(0, 0, -distance)
 
 local py = workspace.Characters.Pseudonym101
 
