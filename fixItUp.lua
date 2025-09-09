@@ -434,6 +434,8 @@ local root = char:WaitForChild("HumanoidRootPart")
 local distance = 10 -- how many studs in front
 local frontPosition = root.Position + (root.CFrame.LookVector * distance)
 
+local py = workspace.Characters.Pseudonym101
+
 local cars = workspace.Vehicles
 local car = nil
 local ownerName = "Pseudonym101"
@@ -498,6 +500,10 @@ local crgpos = CFrame.new(-354.698425, 5.14062738, -1476.35425,
 	-0.970013142, 0, 0.243052706, 
 	0, 1, 0, 
 	-0.243052706, 0, -0.970013142)
+local seller = CFrame.new(-1905.19128, 4.57715082, -782.614624, 
+	0.214174926, 0, 0.976795495, 
+	0, 1, 0, 
+	-0.976795495, 0, 0.214174926)
 
 local function move()
 	local mp = workspace.MoveableParts
@@ -568,17 +574,6 @@ local function fix()
 	fireRemote("PartsEvent", "ReapplyPart", "ExhaustManifold")
 end
 
---call car
-local callCar = {
-	game:GetService("Players").LocalPlayer:WaitForChild("PlayerData"):WaitForChild("Garage"):GetChildren()[2],
-	CFrame.new(-1891.49658203125, 4.8936920166015625, -580.501220703125, -0.9398503303527832, 0, -0.3415864408016205, 0, 1, 0, 0.3415864408016205, 0, -0.9398503303527832)
-}
-
---paint
-local paint = {
-	workspace:WaitForChild("Vehicles"):WaitForChild(tostring(car)),
-	Color3.new(0, 0, 0)
-}
 
 local to = {
 	"TakeOut",
@@ -595,16 +590,24 @@ zbtn3.MouseButton1Click:Connect(ndex)
 zbtn4.MouseButton1Click:Connect(niy)
 
 zbtn5.MouseButton1Click:Connect(function()
+	local callCar = {
+		game:GetService("Players").LocalPlayer:WaitForChild("PlayerData"):WaitForChild("Garage"):GetChildren()[2],
+		CFrame.new(frontPosition)
+	}
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vehicles"):WaitForChild("RemoteLoad"):InvokeServer(unpack(callCar))
 end)
 
 zbtn6.MouseButton1Click:Connect(function()
+	local paint = {
+		workspace:WaitForChild("Vehicles"):WaitForChild(tostring(car)),
+		Color3.new(0, 0, 0)
+	}
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vehicles"):WaitForChild("SetPaint"):FireServer(unpack(paint))
 end)
 
 zbtn7.MouseButton1Click:Connect(function()
-	car:MoveTo(Vector3.new(-385.656433, 6.00488472, -1507.73218))	
-end)
+	py:moveTo(frontshp)
+
 zbtn8.MouseButton1Click:Connect(fix)
 
 zbtn9.MouseButton1Click:Connect(function()
@@ -612,5 +615,6 @@ zbtn9.MouseButton1Click:Connect(function()
 end)
 
 zbtn10.MouseButton1Click:Connect(function()
+	py:moveTo(seller)
 	fireproximityprompt(sell)
 end)
