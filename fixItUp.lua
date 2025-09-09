@@ -427,12 +427,6 @@ ip1.FocusLost:Connect(function(enterPressed)
 end)
 
 --gamecode
-local player = game.Players.LocalPlayer
-local char = player.Character or player.CharacterAdded:Wait()
-local root = char:WaitForChild("HumanoidRootPart")
-local distance = 10 -- how many studs in front
-local frontPosition = root.CFrame * CFrame.new(0, 0, -distance)
-
 local py = workspace.Characters.Pseudonym101
 
 local cars = workspace.Vehicles
@@ -589,6 +583,11 @@ zbtn3.MouseButton1Click:Connect(ndex)
 zbtn4.MouseButton1Click:Connect(niy)
 
 zbtn5.MouseButton1Click:Connect(function()
+	local player = game.Players.LocalPlayer
+	local char = player.Character or player.CharacterAdded:Wait()
+	local root = char:WaitForChild("HumanoidRootPart")
+	local distance = 10 -- how many studs in front
+	local frontPosition = root.CFrame * CFrame.new(0, 0, -distance)
 	local callCar = {
 		game:GetService("Players").LocalPlayer:WaitForChild("PlayerData"):WaitForChild("Garage"):GetChildren()[2], frontPosition
 	}
