@@ -221,7 +221,7 @@ local ip7 = zip:Clone()
 ip7.Parent = zframe
 ip7.Position = UDim2.new(0, 100, 0, 134)
 
-Input.InputBegan:connect(function(key)
+Input.InputBegan:Connect(function(key)
 	local function onoff()
 		if not zframe then
 			warn("zframe is nil!")
@@ -286,7 +286,7 @@ local function noclip()
 	local function Nocl()
 		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
 			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA('BasePart') and v.CanCollide and then
+				if v:IsA('BasePart') and v.CanCollide then
 					v.CanCollide = false
 
 				end
