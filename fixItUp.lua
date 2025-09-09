@@ -451,9 +451,6 @@ findCar()
 cars.ChildAdded:Connect(findCar)
 cars.ChildRemoved:Connect(findCar)
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local rmtev = workspace:WaitForChild("Vehicles"):WaitForChild(tostring(car))
-
 local function fireRemote(eventName, ...)
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local rmtev = workspace:WaitForChild("Vehicles"):WaitForChild(tostring(car))
