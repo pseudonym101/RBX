@@ -616,6 +616,7 @@ zbtn9.MouseButton1Click:Connect(function()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vehicles"):WaitForChild("GetModel"):InvokeServer(unpack(buy1))
 end)
 
-abtn10.MouseButton1Click:Connect(function()
+zbtn10.MouseButton1Click:Connect(function()
 	fireproximityprompt(sell)
 end)
+
