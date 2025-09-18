@@ -17,7 +17,7 @@ local py1 = game.Players.Pseudonym101
 local Noclip = nil
 local Clip = nil
 
-local vsb = 1
+local vsb = true
 local cclip = 1
 local cfog = 1
 local cdex = 0
@@ -45,7 +45,7 @@ local function addBorder(uiElement, cornerRadius, padding)
 end
 
 zframe.Name = "menu"
-zframe.Parent = zgui
+--zframe.Parent = zgui
 --zframe.Position = UDim2.new(0,100,0,100)
 --zframe.Size = UDim2.new(0,500,0,500)
 zframe.Visible = true
@@ -57,10 +57,10 @@ zframe.BackgroundTransparency = 0.5
 zcn.CornerRadius = UDim.new(0, 8)
 zcn.Parent = zframe
 
-zimg.Name = "menu"
+zImg.Name = "menu"
 zImg.Size = UDim2.new(0, 500, 0, 500) -- adjust size
 zImg.Position = UDim2.new(0, 100, 0, 100)
-zimg.Visible = true
+zImg.Visible = true
 zImg.BackgroundTransparency = 1
 zImg.Image = "rbxassetid://131477165290735" -- your uploaded PNG decal ID
 zImg.ScaleType = Enum.ScaleType.Fit
@@ -217,15 +217,9 @@ Input.InputBegan:Connect(function(key)
 			warn("zImg is nil!")
         		return
 		end
-		if vsb == 1 then
-			vsb = 0
-			zImg.Visible = true
-			task.wait(0.1)
-		else
-			vsb = 1
-			zImg.Visible = false
-			task.wait(0.1)
-		end
+		if vsb then
+			vsb = not vsb
+			zImg.Visible = not zImg.Visible
 	end
 	if key.KeyCode == Enum.KeyCode.KeypadPlus then
 		onoff()
