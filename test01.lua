@@ -142,17 +142,17 @@ zframe4.Parent = zframe1
 
 local zimg2 = zImg:Clone()
 zimg2.Name = "edge2"
-zing2.Image = "rbxassetid://131477165290735"
+zimg2.Image = "rbxassetid://131477165290735"
 zimg2.Parent = zframe2
 
 local zimg3 = zImg:Clone()
 zimg3.Name = "edge3"
-zing3.Image = "rbxassetid://78132432000907"
+zimg3.Image = "rbxassetid://78132432000907"
 zimg3.Parent = zframe3
 
 local zimg4 = zImg:Clone()
 zimg4.Name = "edge4"
-zing4.Image = "rbxassetid://78132432000907"
+zimg4.Image = "rbxassetid://78132432000907"
 zimg4.Parent = zframe4
 ----------------------------------------------------------------------------------------------------
 --tab main
