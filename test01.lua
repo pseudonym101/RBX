@@ -45,6 +45,12 @@ zImg.BackgroundTransparency = 1
 zImg.Image = "rbxassetid://78132432000907" -- your uploaded PNG decal ID
 zImg.ScaleType = Enum.ScaleType.Stretch
 
+zImg1.Size = UDim2.new(1, 0, 1, 0) -- adjust size
+zImg1.Position = UDim2.new(1, 0, 1, 0)
+zImg1.BackgroundTransparency = 1
+zImg1.Image = "rbxassetid://131477165290735" -- your uploaded PNG decal ID
+zImg1.ScaleType = Enum.ScaleType.Stretch
+
 zbtn.TextColor3 = Color3.fromRGB(0, 255, 255)
 zbtn.Font = Enum.Font.Gotham
 zbtn.TextScaled = true
@@ -140,19 +146,16 @@ zframe4.Size = UDim2.new(0,600,0,350)
 zframe4.Visible = false
 zframe4.Parent = zframe1
 
-local zimg2 = zImg:Clone()
+local zimg2 = zImg1:Clone()
 zimg2.Name = "edge2"
-zimg2.Image = "rbxassetid://131477165290735"
 zimg2.Parent = zframe2
 
-local zimg3 = zImg:Clone()
+local zimg3 = zImg1:Clone()
 zimg3.Name = "edge3"
-zimg3.Image = "rbxassetid://78132432000907"
 zimg3.Parent = zframe3
 
-local zimg4 = zImg:Clone()
+local zimg4 = zImg1:Clone()
 zimg4.Name = "edge4"
-zimg4.Image = "rbxassetid://78132432000907"
 zimg4.Parent = zframe4
 ----------------------------------------------------------------------------------------------------
 --tab main
