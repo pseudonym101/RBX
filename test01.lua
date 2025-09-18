@@ -212,18 +212,13 @@ ip7.Parent = zImg
 ip7.Position = UDim2.new(0, 100, 0, 134)
 
 Input.InputBegan:Connect(function(key)
-	local function onoff()
+	if key.KeyCode == Enum.KeyCode.KeypadPlus then
 		if not zImg then
 			warn("zImg is nil!")
         		return
 		end
-		if vsb then
-			vsb = not vsb
-			zImg.Visible = not zImg.Visible
-	end
-	if key.KeyCode == Enum.KeyCode.KeypadPlus then
-		onoff()
-		task.wait(0.1)
+		vsb = not vsb
+		zImg.Visible = not zImg.Visible
 	end
 end)
 
@@ -352,7 +347,7 @@ local function nfog()
 		cfog = 0
 		zbtn2.Text = "NOFOGED"
 	else 
-		zfog = 1
+		cfog = 1
 		zbtn2.Text = "FOG"
 	end
 end
@@ -487,7 +482,7 @@ zbtn1.MouseButton1Click:Connect(nclip)
 zbtn2.MouseButton1Click:Connect(nfog)
 zbtn3.MouseButton1Click:Connect(ndex)
 zbtn4.MouseButton1Click:Connect(niy)
-zbtn5.MouseButton1Click:Connect()
-zbtn6.MouseButton1Click:Connect()
-zbtn7.MouseButton1Click:Connect()
-zbtn8.MouseButton1Click:Connect()
+--zbtn5.MouseButton1Click:Connect()
+--zbtn6.MouseButton1Click:Connect()
+--zbtn7.MouseButton1Click:Connect()
+--zbtn8.MouseButton1Click:Connect()
