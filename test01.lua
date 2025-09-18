@@ -45,9 +45,9 @@ local function addBorder(uiElement, cornerRadius, padding)
 end
 
 zframe.Name = "menu"
---zframe.Parent = zgui
---zframe.Position = UDim2.new(0,100,0,100)
---zframe.Size = UDim2.new(0,500,0,500)
+zframe.Parent = zgui
+zframe.Position = UDim2.new(0,100,0,100)
+zframe.Size = UDim2.new(0,500,0,500)
 zframe.Visible = true
 zframe.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
 zframe.BorderSizePixel = 0
@@ -57,14 +57,13 @@ zframe.BackgroundTransparency = 0.5
 zcn.CornerRadius = UDim.new(0, 8)
 zcn.Parent = zframe
 
-zImg.Name = "menu"
-zImg.Size = UDim2.new(0, 500, 0, 500) -- adjust size
-zImg.Position = UDim2.new(0, 100, 0, 100)
-zImg.Visible = true
+zImg.Name = "edge"
+zImg.Size = UDim2.new(1, 0, 1, 0) -- adjust size
+zImg.Position = UDim2.new(1, 0, 1, 0)
 zImg.BackgroundTransparency = 1
 zImg.Image = "rbxassetid://131477165290735" -- your uploaded PNG decal ID
 zImg.ScaleType = Enum.ScaleType.Fit
-zImg.Parent = zgui
+zImg.Parent = zframe
 
 zbtn.TextColor3 = Color3.fromRGB(150, 150, 150)
 zbtn.Font = Enum.Font.Gotham
@@ -213,12 +212,12 @@ ip7.Position = UDim2.new(0, 100, 0, 134)
 
 Input.InputBegan:Connect(function(key)
 	if key.KeyCode == Enum.KeyCode.KeypadPlus then
-		if not zImg then
-			warn("zImg is nil!")
+		if not zframe then
+			warn("zframe is nil!")
         		return
 		end
 		vsb = not vsb
-		zImg.Visible = not zImg.Visible
+		zframe.Visible = not zframe.Visible
 	end
 end)
 
@@ -227,11 +226,11 @@ end)
 local dragging = false
 local dragInput, mousePos, framePos
 
-zImg.InputBegan:Connect(function(input)
+zframe.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
 		dragging = true
 		mousePos = input.Position
-		framePos = zImg.Position
+		framePos = zframe.Position
 
 		input.Changed:Connect(function()
 			if input.UserInputState == Enum.UserInputState.End then
@@ -241,7 +240,7 @@ zImg.InputBegan:Connect(function(input)
 	end
 end)
 
-zImg.InputChanged:Connect(function(input)
+zframe.InputChanged:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseMovement then
 		dragInput = input
 	end
@@ -250,7 +249,7 @@ end)
 game:GetService("UserInputService").InputChanged:Connect(function(input)
 	if input == dragInput and dragging then
 		local delta = input.Position - mousePos
-		zImg.Position = UDim2.new(
+		zframe.Position = UDim2.new(
 			framePos.X.Scale, framePos.X.Offset + delta.X,
 			framePos.Y.Scale, framePos.Y.Offset + delta.Y
 		)
@@ -271,7 +270,7 @@ local function noclip()
 				end
 			end
 		end
-		wait(0.21) -- basic optimization
+		task.wait(0.21) -- basic optimization
 	end
 	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
 end
@@ -300,7 +299,7 @@ end
 local function nofog()
 
 repeat task.wait() until game:IsLoaded()
-wait(5) -- extra load to ensure the script is working
+task.wait(5) -- extra load to ensure the script is working
 for i,v in pairs(game.Lighting:GetChildren()) do
 -- if v:IsA("") or v:IsA("Sky") or v:IsA("BlurEffect") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
 if v:IsA("Sky") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
