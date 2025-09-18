@@ -121,7 +121,6 @@ cn3.Parent = zframe1
 
 local zframe2 = zframe:Clone()
 zframe2.Name = "menu1"
-zframe2.Image = clnedg
 zframe2.Position = UDim2.new(0,50,0,75)
 zframe2.Size = UDim2.new(0,600,0,350)
 zframe2.Visible = false
@@ -129,7 +128,6 @@ zframe2.Parent = zframe1
 
 local zframe3 = zframe:Clone()
 zframe3.Name = "menu2"
-zframe2.Image = clnedg
 zframe3.Position = UDim2.new(0,50,0,75)
 zframe3.Size = UDim2.new(0,600,0,350)
 zframe3.Visible = false
@@ -137,11 +135,25 @@ zframe3.Parent = zframe1
 
 local zframe4 = zframe:Clone()
 zframe4.Name = "menu3"
-zframe2.Image = clnedg
 zframe4.Position = UDim2.new(0,50,0,75)
 zframe4.Size = UDim2.new(0,600,0,350)
 zframe4.Visible = false
 zframe4.Parent = zframe1
+
+local zimg2 = zImg:Clone()
+zimg2.Name = "edge2"
+zing2.Image = clnedg
+zimg2.Parent = zframe2
+
+local zimg3 = zImg:Clone()
+zimg3.Name = "edge3"
+zing3.Image = clnedg
+zimg3.Parent = zframe3
+
+local zimg4 = zImg:Clone()
+zimg4.Name = "edge4"
+zing4.Image = clnedg
+zimg4.Parent = zframe4
 ----------------------------------------------------------------------------------------------------
 --tab main
 ----------------------------------------------------------------------------------------------------
