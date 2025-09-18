@@ -23,58 +23,35 @@ local cfog = 1
 local cdex = 0
 local ciy = 0
 
- 
 Players.LocalPlayer.CameraMaxZoomDistance = 500
-
 zgui.Parent = COREGUI
+----------------------------------------------------------------------------------------------------
+--define model
+----------------------------------------------------------------------------------------------------
+local clnedg = "rbxassetid://131477165290735"
+local oldegd = "rbxassetid://88986587176179"
+local newedg = "rbxassetid://78132432000907"
 
---border
-local function addBorder(uiElement, cornerRadius, padding)
-	padding = padding or 1
-	local border = Instance.new("Frame")
-	border.Size = uiElement.Size + UDim2.new(0, padding * 2, 0, padding * 2)
-	border.Position = uiElement.Position - UDim2.new(0, padding, 0, padding)
-	border.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	border.BorderSizePixel = 0
-	border.ZIndex = uiElement.ZIndex - 1
-	border.Parent = uiElement.Parent
-
-	local borderCorner = Instance.new("UICorner")
-	borderCorner.CornerRadius = UDim.new(0, cornerRadius)
-	borderCorner.Parent = border
-end
-
-zframe.Name = "menu"
-zframe.Parent = zgui
-zframe.Position = UDim2.new(0,100,0,100)
-zframe.Size = UDim2.new(0,500,0,500)
 zframe.Visible = true
-zframe.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+zframe.BackgroundColor3 = Color3.fromRGB(0, 50, 50)
 zframe.BorderSizePixel = 0
 --zframe.AnchorPoint = Vector2.new(0.5, 0.5)
 zframe.ClipsDescendants = true
-zframe.BackgroundTransparency = 0.5
-zcn.CornerRadius = UDim.new(0, 8)
-zcn.Parent = zframe
+zframe.BackgroundTransparency = 0.9
 
-zImg.Name = "edge"
 zImg.Size = UDim2.new(1, 0, 1, 0) -- adjust size
 zImg.Position = UDim2.new(1, 0, 1, 0)
 zImg.BackgroundTransparency = 1
-zImg.Image = "rbxassetid://131477165290735" -- your uploaded PNG decal ID
-zImg.ScaleType = Enum.ScaleType.Fit
-zImg.Parent = zframe
+zImg.Image = newedg -- your uploaded PNG decal ID
+zImg.ScaleType = Enum.ScaleType.Stretch
 
-zbtn.TextColor3 = Color3.fromRGB(150, 150, 150)
+zbtn.TextColor3 = Color3.fromRGB(0, 255, 255)
 zbtn.Font = Enum.Font.Gotham
-zbtn.TextSize = 18
-zbtn.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
-zbtn.BackgroundTransparency = 0
-zbtn.TextXAlignment = Enum.TextXAlignment.Left
+zbtn.TextScaled = true
+zbtn.BackgroundColor3 = Color3.fromRGB(0, 100, 100)
+zbtn.BackgroundTransparency = 0.1
 zbtn.AutoButtonColor = false -- Prevent Roblox hover highlight
-zbtn.Parent = zImg
 zbtn.TextXAlignment = Enum.TextXAlignment.Center
-addBorder(zbtn, 1.5)
 
 zddn.Size = UDim2.new(1, -40, 0, 90)
 zddn.Position = UDim2.new(0, 0, 0, -35 + 30)
@@ -83,7 +60,6 @@ zddn.Visible = false
 local dcn = zcn:Clone()
 dcn.CornerRadius = UDim.new(0, 8)
 dcn.Parent = zddn
-
 
 zip.Name = "InputBox"
 zip.Size = UDim2.new(0, 150, 0, 20)
@@ -99,138 +75,203 @@ zip.ZIndex = 2
 local corner = Instance.new("UICorner")
 corner.CornerRadius = UDim.new(0, 8)
 corner.Parent = zip
+----------------------------------------------------------------------------------------------------
+--main frame
+----------------------------------------------------------------------------------------------------
+local zframe1 = zframe:Clone()
+zframe1.Name = "menu"
+zframe1.Position = UDim2.new(0,100,0,100)
+zframe1.Size = UDim2.new(0,700,0,440)
+zframe1.Visible = true
+zframe1.Parent = zgui
 
+local zimg1 = zImg:Clone()
+zimg1.Name = "edge"
+zimg1.Parent = zframe1
+
+----------------------------------------------------------------------------------------------------
+--main menu
+----------------------------------------------------------------------------------------------------
 local zbtn1 = zbtn:Clone()
 zbtn1.Name = "button1"
 zbtn1.Parent = zImg
-zbtn1.Position = UDim2.new(0,2,0,2)
+zbtn1.Position = UDim2.new(0,50,0,50)
 zbtn1.Size = UDim2.new(0,70,0,20)
-zbtn1.Text = "No Clip"
+zbtn1.Text = "Main"
 local cn1 = zcn:Clone()
-cn1.Parent = zbtn1
-addBorder(zbtn1, 3)
+cn1.Parent = zframe1
 
 local zbtn2 = zbtn:Clone()
 zbtn2.Name = "button2"
 zbtn2.Parent = zImg
-zbtn2.Position = UDim2.new(0,2,0,24)
+zbtn2.Position = UDim2.new(0,102,0,50)
 zbtn2.Size = UDim2.new(0,70,0,20)
-zbtn2.Text = "No FOG"
+zbtn2.Text = "Input"
 local cn2 = zcn:Clone()
-cn2.Parent = zbtn2
-addBorder(zbtn2, 3)
+cn2.Parent = zframe1
 
 local zbtn3 = zbtn:Clone()
 zbtn3.Name = "button3"
 zbtn3.Parent = zImg
-zbtn3.Position = UDim2.new(0,2,0,46)
+zbtn3.Position = UDim2.new(0,154,0,50)
 zbtn3.Size = UDim2.new(0,70,0,20)
-zbtn3.Text = "DEX"
+zbtn3.Text = "Game Control"
 local cn3 = zcn:Clone()
-cn3.Parent = zbtn3
-addBorder(zbtn3, 3)
+cn3.Parent = zframe1
 
+local zframe2 = zframe:Clone()
+zframe2.Name = "menu1"
+zframe2.Image = clnedg
+zframe2.Position = UDim2.new(0,50,0,75)
+zframe2.Size = UDim2.new(0,600,0,350)
+zframe2.Visible = false
+zframe2.Parent = zframe1
+
+local zframe3 = zframe:Clone()
+zframe3.Name = "menu2"
+zframe2.Image = clnedg
+zframe3.Position = UDim2.new(0,50,0,75)
+zframe3.Size = UDim2.new(0,600,0,350)
+zframe3.Visible = false
+zframe3.Parent = zframe1
+
+local zframe4 = zframe:Clone()
+zframe4.Name = "menu3"
+zframe2.Image = clnedg
+zframe4.Position = UDim2.new(0,50,0,75)
+zframe4.Size = UDim2.new(0,600,0,350)
+zframe4.Visible = false
+zframe4.Parent = zframe1
+----------------------------------------------------------------------------------------------------
+--tab main
+----------------------------------------------------------------------------------------------------
 local zbtn4 = zbtn:Clone()
 zbtn4.Name = "button4"
-zbtn4.Parent = zImg
-zbtn4.Position = UDim2.new(0,2,0,68)
+zbtn4.Parent = zframe2
+zbtn4.Position = UDim2.new(0,2,0,2)
 zbtn4.Size = UDim2.new(0,70,0,20)
-zbtn4.Text = "IY"
+zbtn4.Text = "No Clip"
 local cn4 = zcn:Clone()
 cn4.Parent = zbtn4
-addBorder(zbtn4, 3)
 
 local zbtn5 = zbtn:Clone()
 zbtn5.Name = "button5"
-zbtn5.Parent = zImg
-zbtn5.Position = UDim2.new(0,2,0,90)
+zbtn5.Parent = zframe2
+zbtn5.Position = UDim2.new(0,2,0,24)
 zbtn5.Size = UDim2.new(0,70,0,20)
-zbtn5.Text = "Cancel"
+zbtn5.Text = "No FOG"
 local cn5 = zcn:Clone()
 cn5.Parent = zbtn5
-local Cdd = zddn:Clone()
-Cdd.Parent = zbtn5
-addBorder(zbtn5, 3)
 
 local zbtn6 = zbtn:Clone()
-zbtn6.Name = "button6"
-zbtn6.Parent = zImg
-zbtn6.Position = UDim2.new(0,2,0,112)
+zbtn6.Name = "button5"
+zbtn6.Parent = zframe2
+zbtn6.Position = UDim2.new(0,2,0,46)
 zbtn6.Size = UDim2.new(0,70,0,20)
-zbtn6.Text = "Buy"
-local cn6 = zcn:Clone()
-cn6.Parent = zbtn6
-addBorder(zbtn6, 3)
+zbtn6.Text = "DEX"
+local cn5 = zcn:Clone()
+cn5.Parent = zbtn6
 
 local zbtn7 = zbtn:Clone()
 zbtn7.Name = "button7"
-zbtn7.Parent = zImg
-zbtn7.Position = UDim2.new(0,2,0,134)
+zbtn7.Parent = zframe2
+zbtn7.Position = UDim2.new(0,2,0,68)
 zbtn7.Size = UDim2.new(0,70,0,20)
-zbtn7.Text = "Sell"
+zbtn7.Text = "IY"
 local cn7 = zcn:Clone()
 cn7.Parent = zbtn7
-addBorder(zbtn7, 3)
-
-local zbtn8 = zbtn:Clone()
-zbtn8.Name = "button8"
-zbtn8.Parent = zImg
-zbtn8.Position = UDim2.new(0,2,0,156)
-zbtn8.Size = UDim2.new(0,70,0,20)
-zbtn8.Text = "Crate"
-local cn8 = zcn:Clone()
-cn8.Parent = zbtn8
-addBorder(zbtn8, 3)
-
+----------------------------------------------------------------------------------------------------
+--tab2 input
+----------------------------------------------------------------------------------------------------
 local ip1 = zip:Clone()	
-ip1.Parent = zImg
+ip1.Parent = zframe3
 ip1.Position = UDim2.new(0, 100, 0, 2)
 
 local ip2 = zip:Clone()	
-ip2.Parent = zImg
+ip2.Parent = zframe3
 ip2.Position = UDim2.new(0, 100, 0, 24)
 
 local ip3 = zip:Clone()	
-ip3.Parent = zImg
+ip3.Parent = zframe3
 ip3.Position = UDim2.new(0, 100, 0, 46)
 
 local ip4 = zip:Clone()
-ip4.Parent = zImg
+ip4.Parent = zframe3
 ip4.Position = UDim2.new(0, 100, 0, 68)
 
 local ip5 = zip:Clone()	
-ip5.Parent = zImg
+ip5.Parent = zframe3
 ip5.Position = UDim2.new(0, 100, 0, 90)
 
 local ip6 = zip:Clone()	
-ip6.Parent = zImg
+ip6.Parent = zframe3
 ip6.Position = UDim2.new(0, 100, 0, 112)
 
 local ip7 = zip:Clone() 
-ip7.Parent = zImg
+ip7.Parent = zframe3
 ip7.Position = UDim2.new(0, 100, 0, 134)
+----------------------------------------------------------------------------------------------------
+--tab3 control
+----------------------------------------------------------------------------------------------------
+local zbtn8 = zbtn:Clone()
+zbtn8.Name = "button8"
+zbtn8.Parent = zframe4
+zbtn8.Position = UDim2.new(0,2,0,90)
+zbtn8.Size = UDim2.new(0,70,0,20)
+zbtn8.Text = "Cancel"
+local cn8 = zcn:Clone()
+cn8.Parent = zbtn8
 
+local zbtn9 = zbtn:Clone()
+zbtn9.Name = "button9"
+zbtn9.Parent = zframe4
+zbtn9.Position = UDim2.new(0,2,0,112)
+zbtn9.Size = UDim2.new(0,70,0,20)
+zbtn9.Text = "Buy"
+local cn9 = zcn:Clone()
+cn9.Parent = zbtn9
+
+local zbtn10 = zbtn:Clone()
+zbtn10.Name = "button10"
+zbtn10.Parent = zframe4
+zbtn10.Position = UDim2.new(0,2,0,134)
+zbtn10.Size = UDim2.new(0,70,0,20)
+zbtn10.Text = "Sell"
+local cn10 = zcn:Clone()
+cn10.Parent = zbtn10
+
+local zbtn11 = zbtn:Clone()
+zbtn11.Name = "button11"
+zbtn11.Parent = zframe4
+zbtn11.Position = UDim2.new(0,2,0,156)
+zbtn11.Size = UDim2.new(0,70,0,20)
+zbtn11.Text = "Crate"
+local cn11 = zcn:Clone()
+cn11.Parent = zbtn11
+----------------------------------------------------------------------------------------------------
+--toggle open UI
+----------------------------------------------------------------------------------------------------
 Input.InputBegan:Connect(function(key)
 	if key.KeyCode == Enum.KeyCode.KeypadPlus then
-		if not zframe then
-			warn("zframe is nil!")
+		if not zframe1 then
+			warn("zframe1 is nil!")
         		return
 		end
 		vsb = not vsb
-		zframe.Visible = not zframe.Visible
+		zframe1.Visible = not zframe1.Visible
 	end
 end)
-
+----------------------------------------------------------------------------------------------------
 --drag ui
-
+----------------------------------------------------------------------------------------------------
 local dragging = false
 local dragInput, mousePos, framePos
 
-zframe.InputBegan:Connect(function(input)
+zframe1.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
 		dragging = true
 		mousePos = input.Position
-		framePos = zframe.Position
+		framePos = zframe1.Position
 
 		input.Changed:Connect(function()
 			if input.UserInputState == Enum.UserInputState.End then
@@ -240,7 +281,7 @@ zframe.InputBegan:Connect(function(input)
 	end
 end)
 
-zframe.InputChanged:Connect(function(input)
+zframe1.InputChanged:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseMovement then
 		dragInput = input
 	end
@@ -249,16 +290,15 @@ end)
 game:GetService("UserInputService").InputChanged:Connect(function(input)
 	if input == dragInput and dragging then
 		local delta = input.Position - mousePos
-		zframe.Position = UDim2.new(
+		zframe1.Position = UDim2.new(
 			framePos.X.Scale, framePos.X.Offset + delta.X,
 			framePos.Y.Scale, framePos.Y.Offset + delta.Y
 		)
 	end
 end)
-
-
+----------------------------------------------------------------------------------------------------
 --noclip
-
+----------------------------------------------------------------------------------------------------
 local function noclip()
 	Clip = false
 	local function Nocl()
@@ -293,9 +333,9 @@ local function nclip()
 	end
 
 end
-
-
+----------------------------------------------------------------------------------------------------
 --nofog
+----------------------------------------------------------------------------------------------------
 local function nofog()
 
 repeat task.wait() until game:IsLoaded()
@@ -350,8 +390,9 @@ local function nfog()
 		zbtn2.Text = "FOG"
 	end
 end
-
+----------------------------------------------------------------------------------------------------
 --dex
+----------------------------------------------------------------------------------------------------
 local function zdex()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/pseudonym101/RBX/path1/Dex.lua"))()
 end
@@ -368,8 +409,9 @@ local function ndex()
 	end
 
 end
-
+----------------------------------------------------------------------------------------------------
 --IY
+----------------------------------------------------------------------------------------------------
 local function ziy()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/pseudonym101/RBX/path1/IY.lua"))()
 end
@@ -386,10 +428,9 @@ local function niy()
 	end
 
 end
-
-
+----------------------------------------------------------------------------------------------------
 --input box
-
+----------------------------------------------------------------------------------------------------
 ip1.FocusLost:Connect(function(enterPressed)
 	if enterPressed then
 		local input = ip1.Text
@@ -473,15 +514,24 @@ ip7.FocusLost:Connect(function(enterPressed)
 		end
 	end
 end)
-
+----------------------------------------------------------------------------------------------------
 --gamecode
+----------------------------------------------------------------------------------------------------
 
+----------------------------------------------------------------------------------------------------
 --btn
-zbtn1.MouseButton1Click:Connect(nclip)
-zbtn2.MouseButton1Click:Connect(nfog)
-zbtn3.MouseButton1Click:Connect(ndex)
+----------------------------------------------------------------------------------------------------
+--main btn
+zbtn1.MouseButton1Click:Connect(function() zframe2.Visible = not zframe2.Visible end)
+zbtn2.MouseButton1Click:Connect(function() zframe3.Visible = not zframe3.Visible end)
+zbtn3.MouseButton1Click:Connect(function() zframe4.Visible = not zframe4.Visible end)
+--tab1 btn
 zbtn4.MouseButton1Click:Connect(niy)
---zbtn5.MouseButton1Click:Connect()
---zbtn6.MouseButton1Click:Connect()
---zbtn7.MouseButton1Click:Connect()
+zbtn5.MouseButton1Click:Connect(nclip)
+zbtn6.MouseButton1Click:Connect(nfog)
+zbtn7.MouseButton1Click:Connect(ndex)
 --zbtn8.MouseButton1Click:Connect()
+--tab3 btn
+--zbtn9.MouseButton1Click:Connect()
+--zbtn10.MouseButton1Click:Connect()
+--zbtn11.MouseButton1Click:Connect()
