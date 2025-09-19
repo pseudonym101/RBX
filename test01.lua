@@ -29,27 +29,27 @@ zgui.Parent = COREGUI
 ----------------------------------------------------------------------------------------------------
 --define model
 ----------------------------------------------------------------------------------------------------
-local clnedg = "rbxassetid://131477165290735"
-local oldegd = "rbxassetid://88986587176179"
-local newedg = "rbxassetid://78132432000907"
+local clnedg = "rbxassetid://74613691135549"
+local oldegd = "rbxassetid://95093821888161"
+local newedg = "rbxassetid://94099317021623"
 
 zframe.Visible = true
 zframe.BackgroundColor3 = Color3.fromRGB(0, 50, 50)
 zframe.BorderSizePixel = 0
 --zframe.AnchorPoint = Vector2.new(0.5, 0.5)
 zframe.ClipsDescendants = true
-zframe.BackgroundTransparency = 0.9
+zframe.BackgroundTransparency = 0.5
 
 zImg.Size = UDim2.new(1, 0, 1, 0) -- adjust size
 zImg.Position = UDim2.new(0, 0, 0, 0)
 zImg.BackgroundTransparency = 1
-zImg.Image = "rbxassetid://78132432000907" -- your uploaded PNG decal ID
+zImg.Image = "rbxassetid://95093821888161" -- your uploaded PNG decal ID
 zImg.ScaleType = Enum.ScaleType.Stretch
 
 zImg1.Size = UDim2.new(1, 0, 1, 0) -- adjust size
 zImg1.Position = UDim2.new(0, 0, 0, 0)
 zImg1.BackgroundTransparency = 1
-zImg1.Image = "rbxassetid://131477165290735" -- your uploaded PNG decal ID
+zImg1.Image = "rbxassetid://74613691135549" -- your uploaded PNG decal ID
 zImg1.ScaleType = Enum.ScaleType.Stretch
 
 zbtn.TextColor3 = Color3.fromRGB(0, 255, 255)
@@ -111,7 +111,7 @@ cn1.Parent = zbtn1
 local zbtn2 = zbtn:Clone()
 zbtn2.Name = "button2"
 zbtn2.Parent = zframe1
-zbtn2.Position = UDim2.new(0,102,0,50)
+zbtn2.Position = UDim2.new(0,122,0,50)
 zbtn2.Size = UDim2.new(0,70,0,20)
 zbtn2.Text = "Input"
 local cn2 = zcn:Clone()
@@ -120,7 +120,7 @@ cn2.Parent = zbtn2
 local zbtn3 = zbtn:Clone()
 zbtn3.Name = "button3"
 zbtn3.Parent = zframe1
-zbtn3.Position = UDim2.new(0,154,0,50)
+zbtn3.Position = UDim2.new(0,194,0,50)
 zbtn3.Size = UDim2.new(0,70,0,20)
 zbtn3.Text = "Game Control"
 local cn3 = zcn:Clone()
@@ -129,35 +129,32 @@ cn3.Parent = zbtn3
 local zframe2 = zframe:Clone()
 zframe2.Name = "menu1"
 zframe2.Position = UDim2.new(0,50,0,75)
-zframe2.Size = UDim2.new(0,600,0,350)
+zframe2.Size = UDim2.new(0,600,0,315)
+zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+zframe2.BorderMode = Enum.BorderMode.Outline
+zframe2.boderSizePixel = 5
 zframe2.Visible = false
 zframe2.Parent = zframe1
 
 local zframe3 = zframe:Clone()
 zframe3.Name = "menu2"
 zframe3.Position = UDim2.new(0,50,0,75)
-zframe3.Size = UDim2.new(0,600,0,350)
+zframe3.Size = UDim2.new(0,600,0,315)
+zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+zframe2.BorderMode = Enum.BorderMode.Outline
+zframe2.boderSizePixel = 5
 zframe3.Visible = false
 zframe3.Parent = zframe1
 
 local zframe4 = zframe:Clone()
 zframe4.Name = "menu3"
 zframe4.Position = UDim2.new(0,50,0,75)
-zframe4.Size = UDim2.new(0,600,0,350)
+zframe4.Size = UDim2.new(0,600,0,315)
+zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+zframe2.BorderMode = Enum.BorderMode.Outline
+zframe2.boderSizePixel = 5
 zframe4.Visible = false
 zframe4.Parent = zframe1
-
-local zimg2 = zImg1:Clone()
-zimg2.Name = "edge2"
-zimg2.Parent = zframe2
-
-local zimg3 = zImg1:Clone()
-zimg3.Name = "edge3"
-zimg3.Parent = zframe3
-
-local zimg4 = zImg1:Clone()
-zimg4.Name = "edge4"
-zimg4.Parent = zframe4
 ----------------------------------------------------------------------------------------------------
 --tab main
 ----------------------------------------------------------------------------------------------------
