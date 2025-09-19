@@ -140,9 +140,9 @@ local zframe3 = zframe:Clone()
 zframe3.Name = "menu2"
 zframe3.Position = UDim2.new(0,50,0,75)
 zframe3.Size = UDim2.new(0,600,0,315)
-zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
-zframe2.BorderMode = Enum.BorderMode.Outline
-zframe2.BorderSizePixel = 5
+zframe3.BorderColor3 = Color3.fromRGB(0, 255, 255)
+zframe3.BorderMode = Enum.BorderMode.Outline
+zframe3.BorderSizePixel = 5
 zframe3.Visible = false
 zframe3.Parent = zframe1
 
@@ -150,9 +150,9 @@ local zframe4 = zframe:Clone()
 zframe4.Name = "menu3"
 zframe4.Position = UDim2.new(0,50,0,75)
 zframe4.Size = UDim2.new(0,600,0,315)
-zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
-zframe2.BorderMode = Enum.BorderMode.Outline
-zframe2.BorderSizePixel = 5
+zframe4.BorderColor3 = Color3.fromRGB(0, 255, 255)
+zframe4.BorderMode = Enum.BorderMode.Outline
+zframe4.BorderSizePixel = 5
 zframe4.Visible = false
 zframe4.Parent = zframe1
 ----------------------------------------------------------------------------------------------------
@@ -535,9 +535,30 @@ end)
 --btn
 ----------------------------------------------------------------------------------------------------
 --main btn
-zbtn1.MouseButton1Click:Connect(function() zframe2.Visible = not zframe2.Visible end)
-zbtn2.MouseButton1Click:Connect(function() zframe3.Visible = not zframe3.Visible end)
-zbtn3.MouseButton1Click:Connect(function() zframe4.Visible = not zframe4.Visible end)
+zbtn1.MouseButton1Click:Connect(function() 
+	zframe2.Visible = not zframe2.Visible 
+	if zframe3.Visible == true then
+		zframe3.Visible = not zframe3.Visible 
+	elseif zframe4.Visible == true then
+		zframe4.Visible = not zframe4.Visible 
+	end
+end)
+zbtn2.MouseButton1Click:Connect(function()
+	zframe3.Visible = not zframe3.Visible 
+	if zframe4.Visible == true then
+		zframe4.Visible = not zframe4.Visible 
+	elseif zframe2.Visible == true then
+		zframe2.Visible = not zframe2.Visible 
+	end
+end)
+zbtn3.MouseButton1Click:Connect(function()
+	zframe4.Visible = not zframe4.Visible 
+	if zframe3.Visible == true then
+		zframe3.Visible = not zframe3.Visible 
+	elseif zframe2.Visible == true then
+		zframe2.Visible = not zframe2.Visible 
+	end
+end)
 --tab1 btn
 zbtn4.MouseButton1Click:Connect(niy)
 zbtn5.MouseButton1Click:Connect(nclip)
