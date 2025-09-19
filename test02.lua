@@ -198,67 +198,67 @@ cn7.Parent = zbtn7
 ----------------------------------------------------------------------------------------------------
 local ip1 = zip:Clone()	
 ip1.Parent = zframe3
-ip1.Position = UDim2.new(0, 100, 0, 2)
+ip1.Position = UDim2.new(0, 2, 0, 2)
 
 local ip2 = zip:Clone()	
 ip2.Parent = zframe3
-ip2.Position = UDim2.new(0, 100, 0, 24)
+ip2.Position = UDim2.new(0, 2, 0, 24)
 
 local ip3 = zip:Clone()	
 ip3.Parent = zframe3
-ip3.Position = UDim2.new(0, 100, 0, 46)
+ip3.Position = UDim2.new(0, 2, 0, 46)
 
 local ip4 = zip:Clone()
 ip4.Parent = zframe3
-ip4.Position = UDim2.new(0, 100, 0, 68)
+ip4.Position = UDim2.new(0, 2, 0, 68)
 
 local ip5 = zip:Clone()	
 ip5.Parent = zframe3
-ip5.Position = UDim2.new(0, 100, 0, 90)
+ip5.Position = UDim2.new(0, 2, 0, 90)
 
 local ip6 = zip:Clone()	
 ip6.Parent = zframe3
-ip6.Position = UDim2.new(0, 100, 0, 112)
+ip6.Position = UDim2.new(0, 2, 0, 112)
 
 local ip7 = zip:Clone() 
 ip7.Parent = zframe3
-ip7.Position = UDim2.new(0, 100, 0, 134)
+ip7.Position = UDim2.new(0, 2, 0, 134)
 ----------------------------------------------------------------------------------------------------
 --tab3 control
 ----------------------------------------------------------------------------------------------------
 local zbtn8 = zbtn:Clone()
 zbtn8.Name = "button8"
 zbtn8.Parent = zframe4
-zbtn8.Position = UDim2.new(0,2,0,90)
+zbtn8.Position = UDim2.new(0,2,0,2)
 zbtn8.Size = UDim2.new(0,70,0,20)
-zbtn8.Text = "Cancel"
+zbtn8.Text = "1"
 local cn8 = zcn:Clone()
 cn8.Parent = zbtn8
 
 local zbtn9 = zbtn:Clone()
 zbtn9.Name = "button9"
 zbtn9.Parent = zframe4
-zbtn9.Position = UDim2.new(0,2,0,112)
+zbtn9.Position = UDim2.new(0,2,0,24)
 zbtn9.Size = UDim2.new(0,70,0,20)
-zbtn9.Text = "Buy"
+zbtn9.Text = "1"
 local cn9 = zcn:Clone()
 cn9.Parent = zbtn9
 
 local zbtn10 = zbtn:Clone()
 zbtn10.Name = "button10"
 zbtn10.Parent = zframe4
-zbtn10.Position = UDim2.new(0,2,0,134)
+zbtn10.Position = UDim2.new(0,2,0,44)
 zbtn10.Size = UDim2.new(0,70,0,20)
-zbtn10.Text = "Sell"
+zbtn10.Text = "1"
 local cn10 = zcn:Clone()
 cn10.Parent = zbtn10
 
 local zbtn11 = zbtn:Clone()
 zbtn11.Name = "button11"
 zbtn11.Parent = zframe4
-zbtn11.Position = UDim2.new(0,2,0,156)
+zbtn11.Position = UDim2.new(0,2,0,68)
 zbtn11.Size = UDim2.new(0,70,0,20)
-zbtn11.Text = "Crate"
+zbtn11.Text = "1"
 local cn11 = zcn:Clone()
 cn11.Parent = zbtn11
 ----------------------------------------------------------------------------------------------------
@@ -338,11 +338,11 @@ local function nclip()
 	if cclip == 1 then
 		noclip()
 		cclip = 0
-		zbtn1.Text = "Nocliped"
+		zbtn4.Text = "Nocliped"
 	else
 		clip()
 		cclip = 1
-		zbtn1.Text = "Cliped"
+		zbtn4.Text = "Cliped"
 	end
 
 end
@@ -397,10 +397,10 @@ local function nfog()
 	if cfog == 1 then
 		nofog()
 		cfog = 0
-		zbtn2.Text = "NOFOGED"
+		zbtn5.Text = "NOFOGED"
 	else 
 		cfog = 1
-		zbtn2.Text = "FOG"
+		zbtn5.Text = "FOG"
 	end
 end
 ----------------------------------------------------------------------------------------------------
@@ -415,10 +415,10 @@ local function ndex()
 	if cdex == 0 then
 		zdex()
 		cdex = 1
-		zbtn3.Text = "DEXED"
+		zbtn6.Text = "DEXED"
 	else
 		cdex = 0
-		zbtn3.Text = "NODEX"
+		zbtn6.Text = "NODEX"
 	end
 
 end
@@ -434,10 +434,10 @@ local function niy()
 	if ciy == 0 then
 		ziy()
 		ciy = 1
-		zbtn4.Text = "IYED"
+		zbtn7.Text = "IYED"
 	else
 		ciy = 0
-		zbtn4.Text = "NOIY"
+		zbtn7.Text = "NOIY"
 	end
 
 end
