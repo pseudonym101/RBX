@@ -131,8 +131,8 @@ zframe2.Name = "menu1"
 zframe2.Position = UDim2.new(0,50,0,75)
 zframe2.Size = UDim2.new(0,600,0,315)
 zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
-zframe2.BorderMode = Outline
-zframe2.boderSizePixel = 5
+zframe2.BorderMode = Enum.BorderMode.Outline
+zframe2.BorderSizePixel = 5
 zframe2.Visible = false
 zframe2.Parent = zframe1
 
@@ -141,8 +141,8 @@ zframe3.Name = "menu2"
 zframe3.Position = UDim2.new(0,50,0,75)
 zframe3.Size = UDim2.new(0,600,0,315)
 zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
-zframe2.BorderMode = Outline
-zframe2.boderSizePixel = 5
+zframe2.BorderMode = Enum.BorderMode.Outline
+zframe2.BorderSizePixel = 5
 zframe3.Visible = false
 zframe3.Parent = zframe1
 
@@ -151,8 +151,8 @@ zframe4.Name = "menu3"
 zframe4.Position = UDim2.new(0,50,0,75)
 zframe4.Size = UDim2.new(0,600,0,315)
 zframe2.BorderColor3 = Color3.fromRGB(0, 255, 255)
-zframe2.BorderMode = Outline
-zframe2.boderSizePixel = 5
+zframe2.BorderMode = Enum.BorderMode.Outline
+zframe2.BorderSizePixel = 5
 zframe4.Visible = false
 zframe4.Parent = zframe1
 ----------------------------------------------------------------------------------------------------
