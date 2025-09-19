@@ -29,9 +29,9 @@ zgui.Parent = COREGUI
 ----------------------------------------------------------------------------------------------------
 --define model
 ----------------------------------------------------------------------------------------------------
-local clnedg = "rbxassetid://131477165290735"
-local oldegd = "rbxassetid://88986587176179"
-local newedg = "rbxassetid://78132432000907"
+local clnedg = "rbxassetid://74613691135549"
+local oldegd = "rbxassetid://95093821888161"
+local newedg = "rbxassetid://94099317021623"
 
 zframe.Visible = true
 zframe.BackgroundColor3 = Color3.fromRGB(0, 50, 50)
@@ -41,15 +41,15 @@ zframe.ClipsDescendants = true
 zframe.BackgroundTransparency = 0.9
 
 zImg.Size = UDim2.new(1, 0, 1, 0) -- adjust size
-zImg.Position = UDim2.new(1, 0, 1, 0)
+zImg.Position = UDim2.new(0, 0, 0, 0)
 zImg.BackgroundTransparency = 1
-zImg.Image = "rbxassetid://78132432000907" -- your uploaded PNG decal ID
+zImg.Image = "rbxassetid://94099317021623" -- your uploaded PNG decal ID
 zImg.ScaleType = Enum.ScaleType.Stretch
 
 zImg1.Size = UDim2.new(1, 0, 1, 0) -- adjust size
-zImg1.Position = UDim2.new(1, 0, 1, 0)
+zImg1.Position = UDim2.new(0, 0, 0, 0)
 zImg1.BackgroundTransparency = 1
-zImg1.Image = "rbxassetid://131477165290735" -- your uploaded PNG decal ID
+zImg1.Image = "rbxassetid://74613691135549" -- your uploaded PNG decal ID
 zImg1.ScaleType = Enum.ScaleType.Stretch
 
 zbtn.TextColor3 = Color3.fromRGB(0, 255, 255)
@@ -101,30 +101,30 @@ zimg1.Parent = zframe1
 ----------------------------------------------------------------------------------------------------
 local zbtn1 = zbtn:Clone()
 zbtn1.Name = "button1"
-zbtn1.Parent = zImg
+zbtn1.Parent = zframe1
 zbtn1.Position = UDim2.new(0,50,0,50)
 zbtn1.Size = UDim2.new(0,70,0,20)
 zbtn1.Text = "Main"
 local cn1 = zcn:Clone()
-cn1.Parent = zframe1
+cn1.Parent = zbtn1
 
 local zbtn2 = zbtn:Clone()
 zbtn2.Name = "button2"
-zbtn2.Parent = zImg
+zbtn2.Parent = zframe1
 zbtn2.Position = UDim2.new(0,102,0,50)
 zbtn2.Size = UDim2.new(0,70,0,20)
 zbtn2.Text = "Input"
 local cn2 = zcn:Clone()
-cn2.Parent = zframe1
+cn2.Parent = zbtn2
 
 local zbtn3 = zbtn:Clone()
 zbtn3.Name = "button3"
-zbtn3.Parent = zImg
+zbtn3.Parent = zframe1
 zbtn3.Position = UDim2.new(0,154,0,50)
 zbtn3.Size = UDim2.new(0,70,0,20)
 zbtn3.Text = "Game Control"
 local cn3 = zcn:Clone()
-cn3.Parent = zframe1
+cn3.Parent = zbtn3
 
 local zframe2 = zframe:Clone()
 zframe2.Name = "menu1"
