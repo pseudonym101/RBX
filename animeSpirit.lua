@@ -710,7 +710,7 @@ zbtn8.MouseButton1Click:Connect(function()
 	if locked then
 		lockTarget = getNearestEnemy()
 		if lockTarget then
-			zlb1.Text = "Locked onto:", lockTarget.Name
+			zlb1.Text = "Locked onto:"..lockTarget.Name
 		end
 	else
 		lockTarget = nil
