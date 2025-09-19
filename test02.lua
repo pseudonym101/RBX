@@ -247,7 +247,7 @@ cn9.Parent = zbtn9
 local zbtn10 = zbtn:Clone()
 zbtn10.Name = "button10"
 zbtn10.Parent = zframe4
-zbtn10.Position = UDim2.new(0,2,0,44)
+zbtn10.Position = UDim2.new(0,2,0,46)
 zbtn10.Size = UDim2.new(0,70,0,20)
 zbtn10.Text = "1"
 local cn10 = zcn:Clone()
@@ -560,10 +560,10 @@ zbtn3.MouseButton1Click:Connect(function()
 	end
 end)
 --tab1 btn
-zbtn4.MouseButton1Click:Connect(niy)
-zbtn5.MouseButton1Click:Connect(nclip)
-zbtn6.MouseButton1Click:Connect(nfog)
-zbtn7.MouseButton1Click:Connect(ndex)
+zbtn4.MouseButton1Click:Connect(nclip)
+zbtn5.MouseButton1Click:Connect(nfog)
+zbtn6.MouseButton1Click:Connect(ndex)
+zbtn7.MouseButton1Click:Connect(niy)
 --zbtn8.MouseButton1Click:Connect()
 --tab3 btn
 --zbtn9.MouseButton1Click:Connect()
