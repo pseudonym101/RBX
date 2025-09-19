@@ -61,7 +61,7 @@ zbtn.TextXAlignment = Enum.TextXAlignment.Center
 zlb.BackgroundColor3 = Color3.fromRGB(0, 100, 100)
 zlb.BackgroundTransparency = 0.2
 zlb.TextColor3 = Color3.fromRGB(0, 255, 255)
-zln.Font = Enum.Font.Gotham
+zlb.Font = Enum.Font.Gotham
 zlb.TextScaled = true
 
 zddn.Size = UDim2.new(1, -40, 0, 90)
