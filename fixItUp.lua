@@ -768,5 +768,5 @@ zbtn13.MouseButton1Click:Connect(function()
 	local root = char:WaitForChild("HumanoidRootPart")
 	local distance = 10 -- how many studs in front
 	local frontPosition = root.CFrame * CFrame.new(0, 0, -distance)
-	car:Moveto(frontPosition)
+	car:MoveTo(frontPosition)
 end)
